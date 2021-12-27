@@ -1,7 +1,13 @@
 import React from 'react';
+import ShopAside from './ShopAside';
+import './ShopList.scss';
 
-function ShopList(props) {
-  return <div>여긴 상품 리스트페이지다.</div>;
+function ShopList() {
+  return (
+    <div className="shopList">
+      <ShopAside />
+    </div>
+  );
 }
 
 export default ShopList;
