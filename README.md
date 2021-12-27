@@ -1,70 +1,43 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 1팀 MotherTerarosa Team Project
 
-## Available Scripts
+## :: 팀명
 
-In the project directory, you can run:
+- MotherTerarosa
 
-### `npm start`
+## :: 팀원
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Frontend - 박윤국, 성윤경, 엄성용
+- Backend - 강현구, 노세인, 이민석
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## :: Project 소개
 
-### `npm test`
+### Languages and Tools
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<div aligin=center>
 
-### `npm run build`
+[![](https://img.shields.io/badge/ES6-F7DF1E?logo=javascript&logoColor=white&logoWidth=20)]()
+[![](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=white&logoWidth=20)]()
+[![](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white&logoWidth=20)]()
+[![](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white&logoWidth=20)]()
+[![](https://img.shields.io/badge/Sass-CC6699?logo=sass&logoColor=white&logoWidth=20)]()
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+</div>
+<div aligin=center>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[![](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white&logoWidth=20)]()
+[![](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white&logoWidth=20)]()
+[![](https://img.shields.io/badge/Slack-4A154B?logo=slack&logoColor=white&logoWidth=20)]()
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+</div>
 
-### `npm run eject`
+### To-Be
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+|   Page   | 구현 할 사항                                                                                                                                |                                                                                                                            구현이미지                                                                                                                             |
+| :------: | :------------------------------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|  Login   | <ul><li>input 2개 <li>백에서 검증하기 전 validate <li>JWT 토큰 받아서 localStroage 저장<li>기타 필요한것도 로그인에서 Storage로 </ul>       | ![로그인 페이지](https://images.velog.io/images/lov012726/post/7462208b-8ae3-4749-bdd5-3fcd12537a7e/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-27%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205.40.29.png) |
+|  SignUp  | <ul>Sign up input 4개<li>아이디는 영어소문자 / 숫자 4~16자<li> 비밀번호 (특문 하나 포함, 5자이상) <li>fetch 날려주기 (DB 완성 된 이후)</ul> |       ![](https://images.velog.io/images/lov012726/post/88e4392c-1ec5-4fd7-9828-f256cdd16699/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-27%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205.42.51.png)        |
+|   Main   | <ul><li>공통 컴포넌트(GlobalNav, Footer) <li>점보트론 <li>Best 상품 노출 row </ul>                                                          |       ![](https://images.velog.io/images/lov012726/post/dda9d744-b530-40aa-8f13-b3ab0f66cc43/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-27%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205.43.52.png)        |
+| ShopList | <ul><li>Aside(2차 카테고리까지) <li>상품 카드 fetching<li>Pagination<li>Skeleton UI</ul>                                                    |       ![](https://images.velog.io/images/lov012726/post/3ac2c3cb-d521-46c5-9f22-ee790740b0ab/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-27%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205.44.06.png)        |
+|  Detail  | <ul><li>구메 구현</ul>                                                                                                                      |       ![](https://images.velog.io/images/lov012726/post/0a01f9d2-cac9-43e2-8dfb-92eb2ddae42b/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-27%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205.44.23.png)        |
