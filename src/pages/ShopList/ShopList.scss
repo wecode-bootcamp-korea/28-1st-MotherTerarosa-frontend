@@ -31,6 +31,15 @@
       a {
         padding-left: 14px;
       }
+
+      i {
+        padding-right: 7px;
+        font-size: 11px;
+      }
+
+      .categoryContent {
+        @include flexbox(between, center);
+      }
     }
   }
 
