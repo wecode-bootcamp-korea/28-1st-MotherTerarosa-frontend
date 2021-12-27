@@ -11,6 +11,7 @@ function ShopAside(props) {
         </li>
         <li className="categoryItem">
           <Link to="#">커피</Link>
+          <i class="fas fa-plus" />
           <ul className="categoryList2Dep">
             <li>
               <Link to="#">싱글오리진</Link>
