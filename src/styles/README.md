@@ -1,7 +1,5 @@
 # Style scss
 
-# 오늘내로 기초 스타일 잡아서 scss 올리겠습니당!
-
 > 사용하실 scss 파일 안에서 `@import '<index.scss폴더>`
 
 ## constant 폴더
@@ -36,13 +34,13 @@ $story-avatar-level: 10;
 ---
 
 ```scss
-$black: #262626;  root 검정색
-$white: #fff;     root 하얀색
-$gray: #8e8e8e;   댓글이나 placeholder 같은곳에 쓰이는 회색
-$red: #ed4956;    하트에 사용되는 red
-$blue: #0094f6;   button primary 색상 (로그인버튼 등)
+$black: #222;          root 검정색
+$white: #fff;          root 하얀색
+$dark-gray: #383838;   product Card 안에 사용되는 짙은회색
+$gray: #595959;        product Card description 회색
+$red: #d02d28;         button 빨간색
 $background: #fafafa;
-$border: #dbdbdb; border에 자주 사용되는 색상
+$border: #dbdbdb;
 ```
 
 **사용 예**
@@ -109,7 +107,7 @@ $flex-map: (
 
 - pos-center-x(positionType) :: x축 가운데 정렬
 - pos-center-y(positionType) :: y축 가운데 정렬
-- pos-center(positionType) ::
+- pos-center(positionType) :: center center 정렬
 
 **인자로 받는 값**  
 position 값을 받습니다.  
