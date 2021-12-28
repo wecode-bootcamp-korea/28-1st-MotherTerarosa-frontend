@@ -25,8 +25,17 @@ header {
     .categoryWrapper {
       @include flexbox;
       cursor: pointer;
-
-      span {
+      div {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      &:hover::before {
+        position: absolute;
+        border-bottom: 3px solid $red;
+        padding: 0 11px;
+        content: '쇼핑';
+        background-color: $white;
+        color: $red;
         font-size: 1.5rem;
         font-weight: bold;
       }
@@ -37,7 +46,7 @@ header {
 
       .personalInfoWrapper {
         @include flexbox;
-        li {
+        a {
           @include flexbox;
           height: 14px;
           padding: 0 5px;
@@ -45,6 +54,10 @@ header {
           margin-bottom: 30px;
           font-size: 14px;
           cursor: pointer;
+
+          &:hover {
+            color: $red;
+          }
 
           &:last-child {
             border: none;
@@ -59,6 +72,31 @@ header {
           font-size: 16px;
           font-weight: bold;
           cursor: pointer;
+        }
+        .about {
+          position: relative;
+
+          &:hover::before {
+            position: absolute;
+            width: 36px;
+            padding: 0 11px;
+            content: '소개';
+            background-color: $white;
+            color: $red;
+            font-size: 16px;
+          }
+        }
+        .location {
+          position: relative;
+
+          &:hover::before {
+            position: absolute;
+            padding: 0 15.5px;
+            content: '위치안내';
+            background-color: $white;
+            color: $red;
+            font-size: 16px;
+          }
         }
       }
     }
@@ -87,9 +125,21 @@ header {
 
     .categoryWrapper {
       @include flexbox;
+      padding: 10px;
       cursor: pointer;
 
-      span {
+      div {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      &:hover::before {
+        position: absolute;
+        border-bottom: 3px solid $red;
+        padding: 0 11px;
+        content: '쇼핑';
+        background-color: $white;
+        color: $red;
         font-size: 1.5rem;
         font-weight: bold;
       }
@@ -100,20 +150,8 @@ header {
 
       .personalInfoWrapper {
         display: none;
-        li {
-          @include flexbox;
-          height: 14px;
-          padding: 0 5px;
-          border-right: 1px solid black;
-          margin-bottom: 30px;
-          font-size: 14px;
-          cursor: pointer;
-
-          &:last-child {
-            border: none;
-          }
-        }
       }
+
       .moreInfoWrapper {
         @include flexbox(center, center);
         li {
@@ -121,6 +159,31 @@ header {
           font-size: 16px;
           font-weight: bold;
           cursor: pointer;
+        }
+        .about {
+          position: relative;
+
+          &:hover::before {
+            position: absolute;
+            width: 36px;
+            padding: 0 11px;
+            content: '소개';
+            background-color: $white;
+            color: $red;
+            font-size: 16px;
+          }
+        }
+        .location {
+          position: relative;
+
+          &:hover::before {
+            position: absolute;
+            padding: 0 15.5px;
+            content: '위치안내';
+            background-color: $white;
+            color: $red;
+            font-size: 16px;
+          }
         }
       }
     }

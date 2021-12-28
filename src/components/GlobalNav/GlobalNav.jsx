@@ -20,30 +20,30 @@ function GlobalNav() {
         </Link>
         <Link to="/shoplist/:category">
           <div className="categoryWrapper">
-            <span>SHOP</span>
+            <div>SHOP</div>
           </div>
         </Link>
         <div className="infoWrapper">
           <ul className="personalInfoWrapper">
             <Link to="/login">
-              <li>로그인</li>
+              <li className="personalInfo">로그인</li>
             </Link>
             <Link to="#">
-              <li>주문/배송</li>
+              <li className="personalInfo">주문/배송</li>
             </Link>
             <Link to="#">
-              <li>장바구니</li>
+              <li className="personalInfo">장바구니</li>
             </Link>
             <Link to="#">
-              <li>문의</li>
+              <li className="personalInfo">문의</li>
             </Link>
           </ul>
           <ul className="moreInfoWrapper">
             <Link to="#">
-              <li>ABOUT</li>
+              <li className="about">ABOUT</li>
             </Link>
             <Link to="#">
-              <li>LOCATIONS</li>
+              <li className="location">LOCATIONS</li>
             </Link>
           </ul>
         </div>
