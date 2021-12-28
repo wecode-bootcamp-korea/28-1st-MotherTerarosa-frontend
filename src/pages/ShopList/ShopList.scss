@@ -44,8 +44,15 @@
   }
 
   .categoryList2Dep {
-    padding-top: 7px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
     color: $white-gray;
+
+    &.isActive {
+      max-height: 600px;
+      padding-top: 7px;
+    }
 
     li {
       padding: 7px 0;
