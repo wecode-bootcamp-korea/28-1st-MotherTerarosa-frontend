@@ -1,5 +1,6 @@
 const BASE_URL = 'http://localhost:3000/data';
 
 export const api = {
-  shopList: BASE_URL + '/shopList.json',
+  categories: BASE_URL + '/categories.json',
+  shopList: BASE_URL + '/shopList100.json',
 };
