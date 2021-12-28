@@ -48,7 +48,6 @@ function GlobalNav() {
           </ul>
         </div>
       </div>
-      <div className="forJustPageTest" />
     </header>
   );
 }
