@@ -11,6 +11,7 @@ header {
     height: 158px;
     border-bottom: 1px solid $border;
     background-color: $white;
+    transition: all 0.3s linear 0.01s;
 
     .logoWrapper {
       @include flexbox;
@@ -112,6 +113,7 @@ header {
     height: 83px;
     border-bottom: 1px solid $border;
     background-color: $white;
+    transition: all 0.3s linear 0.01s;
 
     .logoWrapper {
       @include flexbox;
@@ -146,7 +148,7 @@ header {
     }
 
     .infoWrapper {
-      @include flexbox(center, center);
+      @include column-flexbox;
 
       .personalInfoWrapper {
         display: none;

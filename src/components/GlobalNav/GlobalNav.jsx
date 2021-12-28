@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import './GlobalNav.scss';
 
 function GlobalNav() {
-  const [scrollPosition, setScrolPosition] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
   const updateScrollPosition = () => {
-    setScrolPosition(window.scrollY || document.documentElement.scrollTop);
+    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
   };
   useEffect(() => {
     window.addEventListener('scroll', updateScrollPosition);
