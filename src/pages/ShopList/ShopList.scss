@@ -1,62 +1,124 @@
 @import 'styles';
 
 .shopList {
+  @include flexbox(start, start);
   width: 1240px;
   margin: 0 auto;
-}
 
-.shopListAside {
-  width: 200px;
+  /* *************Aside************* */
+  .shopListAside {
+    width: 200px;
 
-  .shopListTitle {
-    margin-bottom: 11px;
-    padding-left: 14px;
-    color: $black;
-    font-size: 20px;
-    font-weight: 700;
-  }
+    .shopListTitle {
+      margin-bottom: 11px;
+      padding-left: 14px;
+      color: $black;
+      font-size: 20px;
+      font-weight: 700;
+    }
 
-  .categoryList {
-    font-size: 14px;
-    line-height: 1.4285714286;
+    .categoryList {
+      padding-right: 45px;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.4285714286;
 
-    .categoryItem {
-      padding: 10px 0;
-      border-top: 1px solid $border;
+      .categoryItem {
+        padding: 10px 0;
+        border-top: 1px solid $border;
 
-      &:last-child {
-        border-bottom: 1px solid $border;
+        &:last-child {
+          border-bottom: 1px solid $border;
+        }
+
+        a {
+          padding-left: 14px;
+        }
+
+        i {
+          padding-right: 7px;
+          font-size: 11px;
+        }
+
+        .categoryContent {
+          @include flexbox(between, center);
+        }
+      }
+    }
+
+    .categoryList2Dep {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 300ms ease-in-out;
+      color: $white-gray;
+      font-weight: 400;
+
+      &.isActive {
+        max-height: 600px;
+        padding-top: 7px;
       }
 
-      a {
-        padding-left: 14px;
-      }
-
-      i {
-        padding-right: 7px;
-        font-size: 11px;
-      }
-
-      .categoryContent {
-        @include flexbox(between, center);
+      li {
+        padding: 7px 0;
+        border: 0;
       }
     }
   }
 
-  .categoryList2Dep {
-    max-height: 0;
-    overflow: hidden;
-    transition: all 300ms ease-in-out;
-    color: $white-gray;
+  /* *************ProductList************* */
+  .shopListContent {
+    width: 100%;
 
-    &.isActive {
-      max-height: 600px;
-      padding-top: 7px;
+    .shopHeader {
+      margin-bottom: 20px;
     }
 
-    li {
-      padding: 7px 0;
-      border: 0;
+    .productList {
+      @include flexbox(between, start);
+      flex-wrap: wrap;
+
+      .card {
+        @include column-flexbox(center, center);
+        width: 33%;
+        margin-bottom: 20px;
+
+        .imageWrapper {
+          width: 330px;
+          height: 230px;
+
+          img {
+            display: block;
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+
+        &Info {
+          width: 100%;
+          padding: 10px 15px 0 15px;
+        }
+
+        &Title {
+          display: block;
+          font-size: 20px;
+          letter-spacing: -0.05em;
+
+          &English {
+            padding-bottom: 6px;
+            color: $gray;
+            font-family: 'Open Sans Condensed', sans-serif;
+          }
+        }
+
+        &Desc {
+          color: $dark-gray;
+          font-size: 14px;
+        }
+
+        &Price {
+          font-size: 17px;
+        }
+      }
     }
   }
 }
