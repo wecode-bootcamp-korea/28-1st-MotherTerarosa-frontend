@@ -1,0 +1,131 @@
+@import 'styles';
+
+header {
+  .originalNav {
+    @include flexbox(space-between, center);
+    justify-content: space-between;
+    position: fixed;
+    z-index: $gnb-level;
+    top: 0;
+    width: 100%;
+    height: 158px;
+    border-bottom: 1px solid $border;
+    background-color: $white;
+
+    .logoWrapper {
+      @include flexbox;
+      cursor: pointer;
+
+      span {
+        font-size: 1.75rem;
+        font-weight: bolder;
+      }
+    }
+
+    .categoryWrapper {
+      @include flexbox;
+      cursor: pointer;
+
+      span {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+
+    .infoWrapper {
+      @include column-flexbox;
+
+      .personalInfoWrapper {
+        @include flexbox;
+        li {
+          @include flexbox;
+          height: 14px;
+          padding: 0 5px;
+          border-right: 1px solid black;
+          margin-bottom: 30px;
+          font-size: 14px;
+          cursor: pointer;
+
+          &:last-child {
+            border: none;
+          }
+        }
+      }
+
+      .moreInfoWrapper {
+        @include column-flexbox(center, center);
+        li {
+          margin: 6px 10px;
+          font-size: 16px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .miniNav {
+    @include flexbox(space-between, center);
+    justify-content: space-between;
+    position: fixed;
+    z-index: $gnb-level;
+    top: 0;
+    width: 100%;
+    height: 83px;
+    border-bottom: 1px solid $border;
+    background-color: $white;
+
+    .logoWrapper {
+      @include flexbox;
+      cursor: pointer;
+
+      span {
+        font-size: 1.75rem;
+        font-weight: bolder;
+      }
+    }
+
+    .categoryWrapper {
+      @include flexbox;
+      cursor: pointer;
+
+      span {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+
+    .infoWrapper {
+      @include flexbox(center, center);
+
+      .personalInfoWrapper {
+        display: none;
+        li {
+          @include flexbox;
+          height: 14px;
+          padding: 0 5px;
+          border-right: 1px solid black;
+          margin-bottom: 30px;
+          font-size: 14px;
+          cursor: pointer;
+
+          &:last-child {
+            border: none;
+          }
+        }
+      }
+      .moreInfoWrapper {
+        @include flexbox(center, center);
+        li {
+          margin: 0 10px;
+          font-size: 16px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .forJustPageTest {
+    height: 10000px;
+  }
+}
