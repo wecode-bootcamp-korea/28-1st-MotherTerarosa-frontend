@@ -1,0 +1,24 @@
+@import 'styles';
+
+.pagination {
+  margin: 30px 0;
+
+  .pageList {
+    @include flexbox(center, center);
+
+    .pageItem {
+      padding: 12px;
+      border: 1px solid $white-gray;
+      border-right: 0;
+
+      &:last-child {
+        border-right: 1px solid $white-gray;
+      }
+    }
+
+    .pageLink {
+      padding: 6px;
+      background-color: $white;
+    }
+  }
+}
