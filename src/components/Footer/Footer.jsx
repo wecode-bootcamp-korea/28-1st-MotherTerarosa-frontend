@@ -3,7 +3,7 @@ import './Footer.scss';
 
 function Footer() {
   return (
-    <footer className="Footer">
+    <footer className="footer">
       <div className="customerServiceWrapper">
         <p className="footerHeader">031-262-5973</p>
         <p>서비스센터 영업 시간 : 00:00 ~ 24:00 </p>
