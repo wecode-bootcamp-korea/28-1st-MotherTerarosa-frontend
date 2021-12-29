@@ -1,0 +1,32 @@
+@import 'styles';
+
+.main {
+  @include flexbox(center, center);
+
+  .carouselWrapper {
+    position: relative;
+    overflow: hidden;
+
+    .carousel {
+      @include inline-flexbox(start, center);
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .arrowWrapper {
+      @include flexbox(between, center);
+      @include pos-center;
+      top: 50%;
+      width: 100%;
+      z-index: $gnb-level;
+      color: $white;
+
+      .arrow {
+        opacity: 0.8;
+        cursor: pointer;
+      }
+    }
+  }
+}
