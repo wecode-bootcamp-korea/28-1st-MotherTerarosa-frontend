@@ -11,7 +11,7 @@ function ShopList() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [productPerPage, setProductPerPage] = useState(6);
+  const productPerPage = 6;
 
   const { cateNum } = useParams();
 
@@ -44,8 +44,6 @@ function ShopList() {
     return currentProducts;
   };
 
-  getCurrentProducts(products);
-
   if (isLoading) {
     return <h1>로딩중이다....</h1>;
   }
@@ -66,7 +64,7 @@ function ShopList() {
           <h3>SHOP</h3>
         </header>
         <section className="productList">
-          {products.map((product) => {
+          {getCurrentProducts(products).map((product) => {
             const { id, ...productInfo } = product;
             return <ProductCard key={id} {...productInfo} />;
           })}
@@ -75,6 +73,7 @@ function ShopList() {
         <Pagination
           productPerPage={productPerPage}
           totalProducts={products.length}
+          currentPage={currentPage}
           setCurrentPage={setCurrentPage}
         />
       </main>

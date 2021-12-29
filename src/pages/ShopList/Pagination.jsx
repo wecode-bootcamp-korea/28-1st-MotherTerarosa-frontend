@@ -1,7 +1,7 @@
 import React from 'react';
 import './Pagination.scss';
 
-function Pagination({ productPerPage, totalProducts, setCurrentPage }) {
+function Pagination({ productPerPage, totalProducts, currentPage, setCurrentPage }) {
   const maxPage = Math.ceil(totalProducts / productPerPage);
   let pageNumbers = [];
   for (let i = 1; i <= maxPage; i++) {
@@ -12,7 +12,7 @@ function Pagination({ productPerPage, totalProducts, setCurrentPage }) {
     <div className="pagination">
       <ol className="pageList">
         {pageNumbers.map((pageNumber) => (
-          <li key={pageNumber} className="pageItem">
+          <li key={pageNumber} className={`pageItem ${currentPage === pageNumber ? 'active' : ''}`}>
             <span onClick={() => setCurrentPage(pageNumber)} className="pageLink">
               {pageNumber}
             </span>

@@ -14,11 +14,16 @@
       &:last-child {
         border-right: 1px solid $white-gray;
       }
+
+      &.active {
+        background-color: $dark-gray;
+        color: $white;
+      }
     }
 
     .pageLink {
       padding: 6px;
-      background-color: $white;
+      cursor: pointer;
     }
   }
 }
