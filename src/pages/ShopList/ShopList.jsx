@@ -18,23 +18,31 @@ function ShopList() {
   //TODO: isLoading 위치 찾기
 
   useEffect(() => {
-    async function fetchCategories() {
-      const response = await fetch(api.categories).then((res) => res.json());
-      const { categories } = response.data;
-      setCategories(categories);
-    }
-
-    async function fetchProducts() {
-      setProducts([]);
-      const response = await fetch(api.shopList).then((res) => res.json());
-      const { category_no: categoryNo, products } = response.data;
-      if (categoryNo === cateNum) setProducts(products);
-      setIsLoading(false);
-    }
-
     fetchCategories();
     fetchProducts();
   }, [cateNum]);
+
+  async function fetchCategories() {
+    const response = await fetch(api.categories).then((res) => res.json());
+    const { categories } = response.data;
+    setCategories(categories);
+  }
+
+  async function fetchProducts() {
+    // TODO: 이부분 고생 진짜 많이 했으니까 블로그에 꼭 쓰기 (2차 카테고리 필터 구현)
+    setProducts([]);
+    const response = await fetch(api.products).then((res) => res.json());
+    const productsInfoFilteredByCategory = response.data.filter((category) =>
+      category.category_no.includes(cateNum),
+    );
+    const filteredProducts = productsInfoFilteredByCategory.reduce(
+      (accumulator, currentCategory) => [...accumulator, ...currentCategory.products],
+      [],
+    );
+
+    setProducts(filteredProducts);
+    setIsLoading(false);
+  }
 
   const indexOfLast = currentPage * productPerPage;
   const indexOfFirst = indexOfLast - productPerPage;
@@ -55,7 +63,7 @@ function ShopList() {
         <ul className="categoryList">
           {categories.map((category) => {
             const { no: id } = category;
-            return <ShopAside key={id} {...category} />;
+            return <ShopAside key={id} cateNum={cateNum} {...category} />;
           })}
         </ul>
       </aside>

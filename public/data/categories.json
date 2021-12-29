@@ -4,12 +4,12 @@
       {
         "no": "100",
         "name": "연말 선물",
-        "categories": []
+        "sub_categories": []
       },
       {
         "no": "200",
         "name": "커피",
-        "categories": [
+        "sub_categories": [
           {
             "no": "200001",
             "name": "싱글오리진"
@@ -31,7 +31,7 @@
       {
         "no": "300",
         "name": "식품",
-        "categories": []
+        "sub_categories": []
       }
     ]
   }

@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function ShopAside(props) {
-  const { no, name, categories } = props;
+  const { no, name, sub_categories: subCategories, cateNum } = props;
   const [isClickedMore, setIsClickedMore] = useState(false);
+  const hasSubCategory = subCategories[0];
+
+  useEffect(() => {
+    setIsClickedMore(false);
+    if (cateNum.includes('200')) setIsClickedMore(true);
+  }, [cateNum]);
 
   return (
     <li className="categoryItem">
       <div className="categoryContent">
         <Link to={`/shoplist/category/${no}`}>{name}</Link>
-        {categories[0] && (
+        {hasSubCategory && (
           <i
             className={`fas ${isClickedMore ? 'fa-minus' : 'fa-plus'} `}
             onClick={() => {
@@ -18,15 +24,13 @@ function ShopAside(props) {
           />
         )}
       </div>
-      {categories && (
-        <ul className={`categoryList2Dep ${isClickedMore ? 'isActive' : ''} `}>
-          {categories.map((category) => (
-            <li key={category.no}>
-              <Link to={`/shoplist/category/${category.no}`}>{category.name}</Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul className={`categoryList2Dep ${isClickedMore ? 'isActive' : ''} `}>
+        {subCategories.map((category) => (
+          <li key={category.no}>
+            <Link to={`/shoplist/category/${category.no}`}>{category.name}</Link>
+          </li>
+        ))}
+      </ul>
     </li>
   );
 }
