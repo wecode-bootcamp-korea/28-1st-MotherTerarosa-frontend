@@ -1,39 +1,33 @@
 @import 'styles';
 
-header {
-  .originalNav {
-    @include flexbox(space-between, center);
-    justify-content: space-between;
+.GlobalNav {
+  .commonNav {
+    @include flexbox(around, center);
     position: fixed;
     z-index: $gnb-level;
     top: 0;
     width: 100%;
-    height: 158px;
     border-bottom: 1px solid $border;
     background-color: $white;
-    transition: all 0.3s linear 0.01s;
+    transition: height 0.1s linear 0.01s;
 
     .logoWrapper {
       @include flexbox;
+      font-size: 43px;
+      font-weight: bolder;
       cursor: pointer;
-
-      span {
-        font-size: 1.75rem;
-        font-weight: bolder;
-      }
     }
 
     .categoryWrapper {
       @include flexbox;
+      font-size: 25px;
+      font-weight: bold;
       cursor: pointer;
-      div {
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
+
       &:hover::before {
         position: absolute;
         border-bottom: 3px solid $red;
-        padding: 0 11px;
+        padding: 0 12px;
         content: '쇼핑';
         background-color: $white;
         color: $red;
@@ -46,7 +40,6 @@ header {
       @include column-flexbox;
 
       .personalInfoWrapper {
-        @include flexbox;
         a {
           @include flexbox;
           height: 14px;
@@ -67,15 +60,14 @@ header {
       }
 
       .moreInfoWrapper {
-        @include column-flexbox(center, center);
-        li {
-          margin: 6px 10px;
-          font-size: 16px;
-          font-weight: bold;
-          cursor: pointer;
-        }
+        margin: 6px 10px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+
         .about {
           position: relative;
+          margin: 5px;
 
           &:hover::before {
             position: absolute;
@@ -87,8 +79,10 @@ header {
             font-size: 16px;
           }
         }
+
         .location {
           position: relative;
+          margin: 5px;
 
           &:hover::before {
             position: absolute;
@@ -103,90 +97,30 @@ header {
     }
   }
 
-  .miniNav {
-    @include flexbox(space-between, center);
-    justify-content: space-between;
-    position: fixed;
-    z-index: $gnb-level;
-    top: 0;
-    width: 100%;
-    height: 83px;
-    border-bottom: 1px solid $border;
-    background-color: $white;
-    transition: all 0.3s linear 0.01s;
-
-    .logoWrapper {
-      @include flexbox;
-      cursor: pointer;
-
-      span {
-        font-size: 1.75rem;
-        font-weight: bolder;
-      }
-    }
-
-    .categoryWrapper {
-      @include flexbox;
-      padding: 10px;
-      cursor: pointer;
-
-      div {
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
-
-      &:hover::before {
-        position: absolute;
-        border-bottom: 3px solid $red;
-        padding: 0 11px;
-        content: '쇼핑';
-        background-color: $white;
-        color: $red;
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
-    }
+  .originalNav {
+    height: 158px;
 
     .infoWrapper {
-      @include column-flexbox;
+      .personalInfoWrapper {
+        @include flexbox;
+      }
 
+      .moreInfoWrapper {
+        @include column-flexbox(center, center);
+      }
+    }
+  }
+
+  .miniNav {
+    height: 83px;
+
+    .infoWrapper {
       .personalInfoWrapper {
         display: none;
       }
 
       .moreInfoWrapper {
         @include flexbox(center, center);
-        li {
-          margin: 0 10px;
-          font-size: 16px;
-          font-weight: bold;
-          cursor: pointer;
-        }
-        .about {
-          position: relative;
-
-          &:hover::before {
-            position: absolute;
-            width: 36px;
-            padding: 0 11px;
-            content: '소개';
-            background-color: $white;
-            color: $red;
-            font-size: 16px;
-          }
-        }
-        .location {
-          position: relative;
-
-          &:hover::before {
-            position: absolute;
-            padding: 0 15.5px;
-            content: '위치안내';
-            background-color: $white;
-            color: $red;
-            font-size: 16px;
-          }
-        }
       }
     }
   }

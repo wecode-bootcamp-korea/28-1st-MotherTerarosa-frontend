@@ -3,47 +3,44 @@ import { Link } from 'react-router-dom';
 import './GlobalNav.scss';
 
 function GlobalNav() {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const updateScrollPosition = () => {
-    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+  const [scrollPosition, setScrollPosition] = useState(false);
+
+  const checkscrollYPosition = () => {
+    (window.scrollY || document.documentElement.scrollTop) > 0
+      ? setScrollPosition(true)
+      : setScrollPosition(false);
   };
+
   useEffect(() => {
-    window.addEventListener('scroll', updateScrollPosition);
+    window.addEventListener('scroll', checkscrollYPosition);
   });
+
   return (
     <header className="GlobalNav">
-      <div className={scrollPosition < 1 ? 'originalNav' : 'miniNav'}>
+      <div
+        className={`commonNav ${
+          scrollPosition === false ? 'originalNav' : 'miniNav'
+        }`}
+      >
         <Link to="/">
-          <div className="logoWrapper">
-            <span>MOTHER TERAROSA</span>
-          </div>
+          <div className="logoWrapper">MOTHER TERAROSA</div>
         </Link>
         <Link to="/shoplist/:category">
-          <div className="categoryWrapper">
-            <div>SHOP</div>
-          </div>
+          <div className="categoryWrapper">SHOP</div>
         </Link>
         <div className="infoWrapper">
           <ul className="personalInfoWrapper">
-            <Link to="/login">
-              <li className="personalInfo">로그인</li>
-            </Link>
-            <Link to="#">
-              <li className="personalInfo">주문/배송</li>
-            </Link>
-            <Link to="#">
-              <li className="personalInfo">장바구니</li>
-            </Link>
-            <Link to="#">
-              <li className="personalInfo">문의</li>
-            </Link>
+            <Link to="/login">로그인</Link>
+            <Link to="#">주문/배송</Link>
+            <Link to="#">장바구니</Link>
+            <Link to="#">문의</Link>
           </ul>
           <ul className="moreInfoWrapper">
-            <Link to="#">
-              <li className="about">ABOUT</li>
+            <Link to="#" className="about">
+              ABOUT
             </Link>
-            <Link to="#">
-              <li className="location">LOCATIONS</li>
+            <Link to="#" className="location">
+              LOCATIONS
             </Link>
           </ul>
         </div>
