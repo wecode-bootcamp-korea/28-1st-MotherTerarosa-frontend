@@ -6,7 +6,7 @@ function ShopAsideWrapper({ categories, cateNum }) {
     <aside className="shopListAside">
       <h3 className="shopListTitle">SHOP</h3>
       <ul className="categoryList">
-        {categories.map((category) => {
+        {categories.map(category => {
           const { no: id } = category;
           return <ShopAside key={id} cateNum={cateNum} {...category} />;
         })}

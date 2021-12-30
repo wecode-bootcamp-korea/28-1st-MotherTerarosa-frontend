@@ -4,7 +4,7 @@ import ProductCard from './ProductCard';
 function ProductList({ products, getCurrentProducts }) {
   return (
     <section className="productList">
-      {getCurrentProducts(products).map((product) => {
+      {getCurrentProducts(products).map(product => {
         const { id, ...productInfo } = product;
         return <ProductCard key={id} {...productInfo} />;
       })}
