@@ -22,16 +22,12 @@ function ProductCard(props) {
         </Link>
       </div>
       <ul className="productCardInfo">
-        <li>
-          <Link to="#">
-            <strong className="productCardTitle">{name}</strong>
-          </Link>
+        <li className="titleFont">
+          <Link to="#">{name}</Link>
         </li>
         <li className="productCardTitleEnglish">{enName}</li>
         <li className="productCardDesc">{description}</li>
-        <li className="productCardPrice">
-          <strong>{priceWithComma}원</strong>
-        </li>
+        <li className="productCardPrice fontBold">{priceWithComma}원</li>
       </ul>
     </div>
   );

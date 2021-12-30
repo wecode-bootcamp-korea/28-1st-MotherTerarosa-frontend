@@ -61,7 +61,7 @@ function ShopList() {
       <ShopAsideWrapper categories={categories} cateNum={cateNum} />
       <main className="shopListContent">
         <header className="shopHeader">
-          <h3>SHOP</h3>
+          <h3 className="titleFont">SHOP</h3>
         </header>
         <ProductList products={products} getCurrentProducts={getCurrentProducts} />
         <Pagination
