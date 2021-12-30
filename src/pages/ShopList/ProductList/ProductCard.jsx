@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { printNumberWithComma } from 'utils/common';
 import './ProductCard.scss';
 
 function ProductCard(props) {
@@ -12,7 +13,7 @@ function ProductCard(props) {
     price,
   } = props;
 
-  const priceWithComma = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  const priceWithComma = printNumberWithComma(price);
 
   return (
     <div className="productCard">

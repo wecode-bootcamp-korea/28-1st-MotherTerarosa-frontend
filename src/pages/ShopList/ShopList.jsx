@@ -4,6 +4,7 @@ import ShopAsideWrapper from './ShopAside/ShopAsideWrapper';
 import ProductList from './ProductList/ProductList';
 import Pagination from './Pagination/Pagination';
 import { api } from 'config';
+import { fetchData, filterOutProductsRelatedCategory } from 'utils/common';
 import './ShopList.scss';
 
 function ShopList() {
@@ -19,30 +20,30 @@ function ShopList() {
 
   useEffect(() => {
     fetchCategories();
+  }, []);
+
+  useEffect(() => {
     fetchProducts();
     setCurrentPage(1);
+
+    return () => {
+      setProducts([]);
+    };
   }, [cateNum]);
 
-  async function fetchCategories() {
-    const response = await fetch(api.categories).then((res) => res.json());
-    const { categories } = response.data;
-    setCategories(categories);
-  }
+  const fetchCategories = () => {
+    fetchData(api.categories).then((data) => {
+      const { categories } = data;
+      setCategories(categories);
+    });
+  };
 
-  async function fetchProducts() {
-    setProducts([]);
-    const response = await fetch(api.products).then((res) => res.json());
-    const productsInfoFilteredByCategory = response.data.filter((category) =>
-      category.category_no.includes(cateNum),
-    );
-    const filteredProducts = productsInfoFilteredByCategory.reduce(
-      (accumulator, currentCategory) => [...accumulator, ...currentCategory.products],
-      [],
-    );
-
-    setProducts(filteredProducts);
-    setIsLoading(false);
-  }
+  const fetchProducts = () => {
+    fetchData(api.products).then((data) => {
+      setProducts(filterOutProductsRelatedCategory(data, cateNum));
+      setIsLoading(false);
+    });
+  };
 
   const indexOfLast = currentPage * productPerPage;
   const indexOfFirst = indexOfLast - productPerPage;
