@@ -1,86 +1,158 @@
+/* eslint-disable no-undef */
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Signup.scss';
 
 const Signup = () => {
-  const [userName, setUserName] = useState('');
-  const [userId, setUserId] = useState('');
-  const [userPw, setUserPw] = useState('');
-  const [userPwCheck, setUserPwCheck] = useState('');
-  const [buttonOn, setButtonOn] = useState(false);
+  const navigate = useNavigate();
+  const [isFormValid, setIsFormValid] = useState(false);
 
-  const handleUserName = event => {
-    setUserName(event.target.value);
-    console.log(setUserName);
+  const [formInput, setFormInput] = useState({
+    name: '',
+    id: '',
+    password: '',
+    passwordcheck: '',
+  });
+
+  state = {
+    password: '',
+    confirmPassword: '',
   };
 
-  const handleUserId = event => {
-    setUserId(event.target.value);
-    console.log(setUserId);
+  handleOnPasswordInput(passwordInput) {
+    this.setState({ password: passwordInput });
+  }
+
+  handleOnConfirmPasswordInput(confirmPasswordInput) {
+    this.setState({ confirmPassword: confirmPasswordInput });
+  }
+
+  const handleInput = event => {
+    const { name, value } = event.target;
+    const { id, password } = formInput;
+
+    setFormInput({ ...formInput, [name]: value });
+
+    const isFormValid = checkLoginFormValid(formInput);
+    setIsFormValid(!isFormValid);
   };
 
-  const handleUserPw = event => {
-    setUserPw(event.target.value);
-    console.log(setUserPw);
+  const checkLoginFormValid = form => {
+    return !(!form.id || !form.password);
   };
 
-  const handleUserPwCheck = event => {
-    setUserPwCheck(event.target.value);
-    console.log(setUserPwCheck);
+  const validateSubmit = () => {
+    return validateId() && validatePassword();
   };
 
-  const isPassedId = () => {
-    return userId.includes('a-z0-9') && 16 > userId.length > 4
-      ? setButtonOn(true)
-      : setButtonOn(false);
+  const validateId = () => {
+    const isValidId = formInput.id.indexOf('a-z0-9');
+
+    if (!isValidId) {
+      alert('유효한 아이디 형식이 아닙니다.');
+      return false;
+    }
+    return true;
   };
+
+  const validatePassword = () => {
+    const isValidPassword = formInput.password.lenght > 5;
+
+    if (!isValidPassword) {
+      alert('비밀번호는 5글자 이상 입력해주세요');
+      return false;
+    }
+    return true;
+  };
+
+  const submitSignUpForm = () => {
+    const isValid = validateSubmit();
+    const { id, password } = formInput;
+
+    if (isValid) {
+      fetch(api.login, {
+        method: 'POST',
+        body: JSON.stringify({ id, password }),
+      })
+        .then(res => res.json())
+        .then(data => {
+          const { message, token } = data;
+          if (message === 'invalid user input') {
+            alert('아이디와 비밀번호를 확인해주세요');
+            return;
+          }
+
+          if (massage === 'login success') {
+            localStorage.setItem('user_token', token);
+            goToMain();
+          }
+        });
+    }
+  };
+
+  const goToMain = () => {
+    navigate('/main');
+  };
+
+  // const isPassedId = userId.includes('a-z0-9') && 16 > userId.length > 4;
+  // const isPassedPw = userPw.includes('!@#$%^&*()') && userPw.length > 4;
 
   return (
-    <section>
-      <div className="container">
-        <div className="mainSignUpContainer">
-          <div className="signUpLogo">
-            <h6>Join</h6>
-            <span>회원가입</span>
+    <div className="mainSignUpContainer">
+      <div className="signUpLogo">
+        <h1>Join</h1>
+        <span>회원가입</span>
+      </div>
+      <div className="signUpContainer">
+        <div className="signUpInfo">
+          <div className="infoTitle">기본정보 입력</div>
+          <div className="userName">
+            <label className="innerTitle">이름</label>
+            <input type="text" />
           </div>
-          <div className="signUpContainer">
-            <div className="signUpInfo">
-              <div className="infoTitle">기본정보 입력</div>
-              <div className="userName">
-                <div className="innerTitle">이름</div>
-                <input type="text" onChange={handleUserName} />
-              </div>
-              <div className="userId">
-                <div className="innerTitle">아이디</div>
-                <div className="idInner">
-                  <input
-                    type="text"
-                    onChange={handleUserId}
-                    onKeyUp={isPassedId}
-                  />
-                  <span>(영문소문자 / 숫자, 4~16자)</span>
-                </div>
-              </div>
-              <div className="userPw">
-                <div className="innerTitle">비밀번호</div>
-                <div className="pwInner">
-                  <input type="password" onChange={handleUserPw} />
-                  <span>(특수문자 1가지 이상, 5자 이상)</span>
-                </div>
-              </div>
-              <div className="userPwCheck">
-                <div className="innerTitle">비밀번호 확인</div>
-                <input type="password" onChange={handleUserPwCheck} />
-              </div>
-              <div className="buttonSetting">
-                <button className={buttonOn ? 'onBtn' : 'offBtn'} type="button">
-                  회원가입
-                </button>
-              </div>
+          <div className="userId">
+            <label className="innerTitle">아이디</label>
+            <div className="idInner">
+              <input
+                name="id"
+                type="text"
+                onChange={handleInput}
+                value={formInput.id}
+              />
+              <span>(영문소문자 / 숫자, 4~16자)</span>
             </div>
+          </div>
+          <div className="userPw">
+            <label className="innerTitle">비밀번호</label>
+            <div className="pwInner">
+              <input
+                name="password"
+                type="password"
+                onChange={handleInput}
+                value={formInput.pass}
+                onKeyDown={event => {
+                  if (event.code === 'Enter') submitSignUpForm();
+                }}
+              />
+              <span>(5자 이상)</span>
+            </div>
+          </div>
+          <div className="userPwCheck">
+            <label className="innerTitle">비밀번호 확인</label>
+            <input type="password" />
+          </div>
+          <div className="buttonSetting">
+            <button
+              type="button"
+              onClick={validateSubmit}
+              disabled={!isFormValid}
+            >
+              회원가입
+            </button>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
