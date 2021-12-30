@@ -32,14 +32,14 @@ function ShopList() {
   }, [cateNum]);
 
   const fetchCategories = () => {
-    fetchData(api.categories).then((data) => {
+    fetchData(api.categories).then(data => {
       const { categories } = data;
       setCategories(categories);
     });
   };
 
   const fetchProducts = () => {
-    fetchData(api.products).then((data) => {
+    fetchData(api.products).then(data => {
       setProducts(filterOutProductsRelatedCategory(data, cateNum));
       setIsLoading(false);
     });
@@ -48,7 +48,7 @@ function ShopList() {
   const indexOfLast = currentPage * productPerPage;
   const indexOfFirst = indexOfLast - productPerPage;
 
-  const getCurrentProducts = (entireProducts) => {
+  const getCurrentProducts = entireProducts => {
     const currentProducts = entireProducts.slice(indexOfFirst, indexOfLast);
     return currentProducts;
   };
@@ -64,7 +64,10 @@ function ShopList() {
         <header className="shopHeader">
           <h3 className="titleFont">SHOP</h3>
         </header>
-        <ProductList products={products} getCurrentProducts={getCurrentProducts} />
+        <ProductList
+          products={products}
+          getCurrentProducts={getCurrentProducts}
+        />
         <Pagination
           productPerPage={productPerPage}
           totalProducts={products.length}
