@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './GlobalNav.scss';
 
@@ -16,11 +16,9 @@ function GlobalNav() {
   });
 
   return (
-    <header className="GlobalNav">
+    <header className="globalnav">
       <div
-        className={`commonNav ${
-          scrollPosition === false ? 'originalNav' : 'miniNav'
-        }`}
+        className={`commonNav ${!scrollPosition ? 'originalNav' : 'miniNav'}`}
       >
         <Link to="/">
           <div className="logoWrapper">MOTHER TERAROSA</div>

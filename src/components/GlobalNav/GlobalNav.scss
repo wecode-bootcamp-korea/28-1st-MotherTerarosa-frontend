@@ -1,6 +1,6 @@
 @import 'styles';
 
-.GlobalNav {
+.globalnav {
   .commonNav {
     @include flexbox(around, center);
     position: fixed;
