@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import ShopAside from './ShopAside';
+import ShopAside from './ShopAside/ShopAside';
 import { api } from 'config';
 import './ShopList.scss';
 import ProductCard from './ProductCard';
 import Pagination from './Pagination';
+import ShopAsideWrapper from './ShopAside/ShopAsideWrapper';
 
 function ShopList() {
   const [categories, setCategories] = useState([]);
@@ -20,6 +21,7 @@ function ShopList() {
   useEffect(() => {
     fetchCategories();
     fetchProducts();
+    setCurrentPage(1);
   }, [cateNum]);
 
   async function fetchCategories() {
@@ -58,15 +60,7 @@ function ShopList() {
 
   return (
     <div className="shopList">
-      <aside className="shopListAside">
-        <h3 className="shopListTitle">SHOP</h3>
-        <ul className="categoryList">
-          {categories.map((category) => {
-            const { no: id } = category;
-            return <ShopAside key={id} cateNum={cateNum} {...category} />;
-          })}
-        </ul>
-      </aside>
+      <ShopAsideWrapper categories={categories} cateNum={cateNum} />
       <main className="shopListContent">
         <header className="shopHeader">
           <h3>SHOP</h3>
