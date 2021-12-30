@@ -19,13 +19,13 @@ const Signup = () => {
     confirmPassword: '',
   };
 
-  handleOnPasswordInput(passwordInput) {
-    this.setState({ password: passwordInput });
-  }
+  // handleOnPasswordInput(passwordInput) {
+  //   this.setState({ password: passwordInput });
+  // }
 
-  handleOnConfirmPasswordInput(confirmPasswordInput) {
-    this.setState({ confirmPassword: confirmPasswordInput });
-  }
+  // handleOnConfirmPasswordInput(confirmPasswordInput) {
+  //   this.setState({ confirmPassword: confirmPasswordInput });
+  // }
 
   const handleInput = event => {
     const { name, value } = event.target;
