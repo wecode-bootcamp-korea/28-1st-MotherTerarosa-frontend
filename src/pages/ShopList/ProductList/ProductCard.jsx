@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './ProductCard.scss';
 
 function ProductCard(props) {
   // eslint-disable-next-line prettier/prettier
@@ -14,21 +15,21 @@ function ProductCard(props) {
   const priceWithComma = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
   return (
-    <div className="card">
+    <div className="productCard">
       <div className="imageWrapper">
         <Link to="#">
           <img src={imageUrl} alt={name} />
         </Link>
       </div>
-      <ul className="cardInfo">
+      <ul className="productCardInfo">
         <li>
           <Link to="#">
-            <strong className="cardTitle">{name}</strong>
+            <strong className="productCardTitle">{name}</strong>
           </Link>
         </li>
-        <li className="cardTitleEnglish">{enName}</li>
-        <li className="cardDesc">{description}</li>
-        <li className="cardPrice">
+        <li className="productCardTitleEnglish">{enName}</li>
+        <li className="productCardDesc">{description}</li>
+        <li className="productCardPrice">
           <strong>{priceWithComma}원</strong>
         </li>
       </ul>

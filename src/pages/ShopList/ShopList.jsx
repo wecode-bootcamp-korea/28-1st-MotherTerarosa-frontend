@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import ShopAside from './ShopAside/ShopAside';
 import { api } from 'config';
-import './ShopList.scss';
-import ProductCard from './ProductCard';
-import Pagination from './Pagination';
 import ShopAsideWrapper from './ShopAside/ShopAsideWrapper';
+import ProductCard from './ProductList/ProductCard';
+import Pagination from './Pagination/Pagination';
+import './ShopList.scss';
+import ProductList from './ProductList/ProductList';
 
 function ShopList() {
   const [categories, setCategories] = useState([]);
@@ -31,7 +31,6 @@ function ShopList() {
   }
 
   async function fetchProducts() {
-    // TODO: 이부분 고생 진짜 많이 했으니까 블로그에 꼭 쓰기 (2차 카테고리 필터 구현)
     setProducts([]);
     const response = await fetch(api.products).then((res) => res.json());
     const productsInfoFilteredByCategory = response.data.filter((category) =>
@@ -65,13 +64,7 @@ function ShopList() {
         <header className="shopHeader">
           <h3>SHOP</h3>
         </header>
-        <section className="productList">
-          {getCurrentProducts(products).map((product) => {
-            const { id, ...productInfo } = product;
-            return <ProductCard key={id} {...productInfo} />;
-          })}
-        </section>
-
+        <ProductList products={products} getCurrentProducts={getCurrentProducts} />
         <Pagination
           productPerPage={productPerPage}
           totalProducts={products.length}

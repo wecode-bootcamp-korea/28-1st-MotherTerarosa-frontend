@@ -16,50 +16,6 @@
     .productList {
       @include flexbox(start, start);
       flex-wrap: wrap;
-
-      .card {
-        @include column-flexbox(center, center);
-        width: 33.333333%;
-        margin-bottom: 20px;
-
-        .imageWrapper {
-          width: 330px;
-          height: 230px;
-          overflow: hidden;
-
-          img {
-            display: block;
-            width: 100%;
-            object-fit: cover;
-          }
-        }
-
-        &Info {
-          width: 100%;
-          padding: 10px 15px 0 15px;
-        }
-
-        &Title {
-          display: block;
-          font-size: 20px;
-          letter-spacing: -0.05em;
-
-          &English {
-            padding-bottom: 6px;
-            color: $gray;
-            font-family: 'Open Sans Condensed', sans-serif;
-          }
-        }
-
-        &Desc {
-          color: $dark-gray;
-          font-size: 14px;
-        }
-
-        &Price {
-          font-size: 17px;
-        }
-      }
     }
   }
 }
