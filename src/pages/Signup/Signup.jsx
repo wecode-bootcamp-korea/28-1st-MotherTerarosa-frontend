@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Signup.scss';
@@ -10,22 +9,10 @@ const Signup = () => {
   const [formInput, setFormInput] = useState({
     name: '',
     id: '',
-    password: '',
-    passwordcheck: '',
+    firstpassword: '',
+    lastpassword: '',
+    checkPassword: '패스워드 입력',
   });
-
-  state = {
-    password: '',
-    confirmPassword: '',
-  };
-
-  // handleOnPasswordInput(passwordInput) {
-  //   this.setState({ password: passwordInput });
-  // }
-
-  // handleOnConfirmPasswordInput(confirmPasswordInput) {
-  //   this.setState({ confirmPassword: confirmPasswordInput });
-  // }
 
   const handleInput = event => {
     const { name, value } = event.target;
@@ -35,6 +22,31 @@ const Signup = () => {
 
     const isFormValid = checkLoginFormValid(formInput);
     setIsFormValid(!isFormValid);
+  };
+
+  const handleChange = e => {
+    setFormInput({ [e.target.value]: e.target.value });
+
+    if (e.target.name !== 'name') {
+      setTimeout(this.handleCheck, 100);
+    }
+  };
+
+  const handleCheck = () => {
+    const { firstPassword, lastPassword } = setFormInput;
+    if (firstPassword.length < 1 || lastPassword.lenght < 1) {
+      this.setState({
+        checkPassword: '패스워드 입력',
+      });
+    } else if (firstPassword === lastPassword) {
+      this.setState({
+        checkPassword: '일치',
+      });
+    } else {
+      this.setState({
+        checkPassword: '불일치',
+      });
+    }
   };
 
   const checkLoginFormValid = form => {
@@ -128,8 +140,8 @@ const Signup = () => {
               <input
                 name="password"
                 type="password"
-                onChange={handleInput}
-                value={formInput.pass}
+                onChange={(handleInput, handleChange)}
+                value={(formInput.pass, firstPassword)}
                 onKeyDown={event => {
                   if (event.code === 'Enter') submitSignUpForm();
                 }}
@@ -138,7 +150,13 @@ const Signup = () => {
             </div>
           </div>
           <div className="userPwCheck">
-            <label className="innerTitle">비밀번호 확인</label>
+            <label
+              className="innerTitle"
+              onChange={handleChange}
+              value={lastPassword}
+            >
+              비밀번호 확인
+            </label>
             <input type="password" />
           </div>
           <div className="buttonSetting">
