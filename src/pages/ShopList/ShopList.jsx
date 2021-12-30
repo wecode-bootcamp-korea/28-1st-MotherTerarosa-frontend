@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { api } from 'config';
 import ShopAsideWrapper from './ShopAside/ShopAsideWrapper';
-import ProductCard from './ProductList/ProductCard';
-import Pagination from './Pagination/Pagination';
-import './ShopList.scss';
 import ProductList from './ProductList/ProductList';
+import Pagination from './Pagination/Pagination';
+import { api } from 'config';
+import './ShopList.scss';
 
 function ShopList() {
   const [categories, setCategories] = useState([]);
