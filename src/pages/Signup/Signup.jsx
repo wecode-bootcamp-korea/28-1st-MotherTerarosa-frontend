@@ -14,13 +14,9 @@ const Signup = () => {
 
   const navigate = useNavigate();
 
-  console.log(formInput.userName);
-
   const handleInput = event => {
     const { name, value } = event.target;
     setFormInput({ ...formInput, [name]: value });
-    // console.log(formInput.id);
-    // console.log(formInput.email);
   };
 
   const isIdValid = formInput.id.length >= 4 && formInput.id.length < 16;
@@ -29,42 +25,6 @@ const Signup = () => {
   const isSamePassword = formInput.firstpassword === formInput.lastpassword;
   const isFormValid =
     isIdValid && isEmailValid && isPasswordValid && isSamePassword;
-
-  //원리는 : 저희가 사용자의 키를 받으면서 계속해서 화면을 재 렌더링 해주고 있음.
-  // 렌더링 하면 컴포넌트 함수 전체가 한바퀴 돌겠죠?
-  // OK?
-
-  if (isSamePassword) {
-    // 통과
-  }
-
-  if (!isPasswordValid) {
-    // console.log('동일한 패스워드를 입력해주셔야 합니다.');
-  }
-  const validateSubmit = () => {
-    if (isFormValid) {
-      // const { userName, id, email, firstpassword, lastpassword } = formInput;
-      // fetch('http://', {
-      //   method: 'POST',
-      //   body: JSON.stringify({
-      //     userName,
-      //     id,
-      //     email,
-      //     firstpassword,
-      //     lastpassword,
-      //   }),
-      // })
-      //   .then(response => response.json())
-      //   .then(result => {
-      //     if (result.MESSAGE === 'SUCCESS') {
-      //       navigate('/main');
-      //     } else {
-      //       alert('다시 한 번 확인해주세요.');
-      //     }
-      //   });
-      navigate('/main');
-    }
-  };
 
   const submitUserInfo = () => {
     // const { userName, id, email, firstpassword, lastpassword } = formInput;
@@ -110,12 +70,13 @@ const Signup = () => {
                 onChange={handleInput}
                 value={formInput.id}
               />
-              <span>(4자 이상)</span>
+              <span>(4자~16자)</span>
             </div>
           </div>
           <div className="user">
             <label className="innerTitle">이메일</label>
             <input type="text" name="email" onChange={handleInput} />
+            <span>(@ 포함)</span>
           </div>
           <div className="userPw">
             <label className="innerTitle">비밀번호</label>
@@ -144,7 +105,7 @@ const Signup = () => {
             <button
               className={`btn ${isFormValid ? '' : 'invalid'}`}
               type="submit"
-              onClick={validateSubmit}
+              onClick={submitUserInfo}
               disabled={!isFormValid}
             >
               회원가입
