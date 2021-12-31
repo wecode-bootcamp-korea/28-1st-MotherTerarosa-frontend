@@ -6,18 +6,21 @@ export async function fetchData(URI) {
   return response.data;
 }
 
-export function filterOutProductsRelatedCategory(fetchedData, categoryId) {
+export function getProductsRelatedCategory(fetchedData, categoryId) {
   const productsInfoFilteredByCategory = fetchedData.filter(category =>
     category.category_no.includes(categoryId)
   );
 
-  const filteredProducts = productsInfoFilteredByCategory.reduce(
-    (accumulator, currentCategory) => [
-      ...accumulator,
-      ...currentCategory.products,
-    ],
-    []
-  );
+  if (categoryId === 0) return getFilteredProducts(fetchedData);
+  return getFilteredProducts(productsInfoFilteredByCategory);
 
-  return filteredProducts;
+  function getFilteredProducts(productsInfo) {
+    return productsInfo.reduce(
+      (accumulator, currentCategory) => [
+        ...accumulator,
+        ...currentCategory.products,
+      ],
+      []
+    );
+  }
 }

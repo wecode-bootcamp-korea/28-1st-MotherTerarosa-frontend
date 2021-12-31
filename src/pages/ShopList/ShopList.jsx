@@ -4,7 +4,7 @@ import ShopAsideWrapper from './ShopAside/ShopAsideWrapper';
 import ProductList from './ProductList/ProductList';
 import Pagination from './Pagination/Pagination';
 import { api } from 'config';
-import { fetchData, filterOutProductsRelatedCategory } from 'utils/common';
+import { fetchData, getProductsRelatedCategory } from 'utils/common';
 import './ShopList.scss';
 
 function ShopList() {
@@ -39,10 +39,12 @@ function ShopList() {
   };
 
   const fetchProducts = () => {
-    fetchData(api.products).then(data => {
-      setProducts(filterOutProductsRelatedCategory(data, cateNum));
-      setIsLoading(false);
-    });
+    if (cateNum) {
+      fetchData(api.products).then(data => {
+        setProducts(getProductsRelatedCategory(data, cateNum));
+        setIsLoading(false);
+      });
+    }
   };
 
   const indexOfLast = currentPage * productPerPage;
