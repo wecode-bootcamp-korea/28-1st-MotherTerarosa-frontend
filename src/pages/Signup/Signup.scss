@@ -178,6 +178,11 @@
         font-weight: bold;
         color: white;
         background-color: $black;
+
+        &.invalid {
+          color: $black;
+          background-color: $black;
+        }
       }
     }
   }
