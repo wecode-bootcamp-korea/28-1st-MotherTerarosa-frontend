@@ -1,0 +1,77 @@
+@import 'styles';
+
+.skeletonShopList {
+  @include flexbox(start, start);
+  width: 1240px;
+  margin: 0 auto;
+
+  .shopListAside {
+    width: 200px;
+
+    .shopListTitle {
+      width: 60%;
+      height: 30px;
+      margin-bottom: 20px;
+      padding-left: 14px;
+      border-radius: 5px;
+      background-color: $background;
+    }
+
+    .categoryList {
+      padding-right: 45px;
+
+      .categoryItem {
+        width: 120px;
+        height: 20px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        background-color: $background;
+      }
+    }
+  }
+
+  .shopListContent {
+    width: 100%;
+
+    .shopHeader {
+      width: 150px;
+      height: 30px;
+      margin-bottom: 20px;
+      margin-left: 13px;
+      border-radius: 5px;
+      background-color: $background;
+    }
+
+    .productList {
+      @include flexbox(start, start);
+      flex-wrap: wrap;
+    }
+
+    .productCard {
+      .imageWrapper {
+        margin-bottom: 5px;
+        border-radius: 5px;
+        background-color: $background;
+      }
+
+      &InfoItem {
+        height: 20px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        background-color: $background;
+
+        &.width30 {
+          width: 30%;
+        }
+
+        &.width50 {
+          width: 50%;
+        }
+
+        &.width70 {
+          width: 70%;
+        }
+      }
+    }
+  }
+}
