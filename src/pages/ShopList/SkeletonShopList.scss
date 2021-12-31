@@ -1,5 +1,38 @@
 @import 'styles';
 
+@mixin skeleton-loading-bar($width: 100, $speed: 2) {
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    animation: loading $speed + s infinite linear;
+    background-image: linear-gradient(
+      90deg,
+      rgba(#fff, 0),
+      rgba(#fff, 0.5),
+      rgba(#fff, 0)
+    );
+    background-size: 40px;
+  }
+
+  @keyframes loading {
+    0% {
+      transform: translateX(0);
+    }
+
+    50%,
+    100% {
+      transform: translateX($width + px);
+    }
+  }
+}
+
 .skeletonShopList {
   @include flexbox(start, start);
   width: 1240px;
@@ -9,6 +42,7 @@
     width: 200px;
 
     .shopListTitle {
+      @include skeleton-loading-bar(200, 4);
       width: 60%;
       height: 30px;
       margin-bottom: 20px;
@@ -21,6 +55,7 @@
       padding-right: 45px;
 
       .categoryItem {
+        @include skeleton-loading-bar(200, 4);
         width: 120px;
         height: 20px;
         margin-bottom: 10px;
@@ -34,6 +69,7 @@
     width: 100%;
 
     .shopHeader {
+      @include skeleton-loading-bar(340);
       width: 150px;
       height: 30px;
       margin-bottom: 20px;
@@ -49,12 +85,14 @@
 
     .productCard {
       .imageWrapper {
+        @include skeleton-loading-bar(340);
         margin-bottom: 5px;
         border-radius: 5px;
         background-color: $background;
       }
 
       &InfoItem {
+        @include skeleton-loading-bar(340);
         height: 20px;
         margin-bottom: 5px;
         border-radius: 5px;

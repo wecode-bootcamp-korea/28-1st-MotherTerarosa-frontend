@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import ShopAsideWrapper from './ShopAside/ShopAsideWrapper';
 import ProductList from './ProductList/ProductList';
 import Pagination from './Pagination/Pagination';
+import SkeletonShopList from './SkeletonShopList';
 import { api } from 'config';
 import { fetchData, getProductsRelatedCategory } from 'utils/common';
 import './ShopList.scss';
@@ -23,6 +24,7 @@ function ShopList() {
   }, []);
 
   useEffect(() => {
+    setIsLoading(true);
     fetchProducts();
     setCurrentPage(1);
 
@@ -56,7 +58,7 @@ function ShopList() {
   };
 
   if (isLoading) {
-    return <h1>로딩중이다....</h1>;
+    return <SkeletonShopList />;
   }
 
   return (
