@@ -20,22 +20,22 @@ function Main() {
   useEffect(() => {
     imgRef.current.style.transition = 'all 0.1s linear';
     imgRef.current.style.transform = `translateX(-${currentImg}00%)`;
-    // setTimeout(() => {
-    //   getNextImg();
-    //   console.log('타이머 4초 일해라, 현재이미지', currentImg);
-    // }, 4000);
+    setTimeout(() => {
+      getNextImg();
+      console.log('타이머 4초 일해라, 현재이미지', currentImg);
+    }, 4000);
   }, [currentImg]);
 
   const getPreImg = () => {
     if (currentImg === 0) return;
     setCurrentImg(currentImg - 1);
-    console.log('손으로 당겼다, 현재이미지', currentImg);
+    console.log('당겼다, 현재이미지', currentImg);
   };
 
   const getNextImg = () => {
     if (currentImg === carouselImg.length - 1) return;
     setCurrentImg(currentImg + 1);
-    console.log('손으로 밀었다, 현재이미지', currentImg);
+    console.log('밀었다, 현재이미지', currentImg);
   };
 
   return (
