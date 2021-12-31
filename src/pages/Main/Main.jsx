@@ -61,6 +61,16 @@ function Main() {
           />
         </div>
       </div>
+      <div className="bestItems">
+        <h2 className="bestItemsTitle">BEST</h2>
+        <div className="moreItems">+SHOP</div>
+        <div className="productWrapper">상품3개 ㄱㄱ</div>
+      </div>
+      <div className="newItems">
+        <h2 className="newItemsTitle">NEW</h2>
+        <div className="moreItems">+SHOP</div>
+        <div className="productWrapper">상품4개ㄱㄱ</div>
+      </div>
     </main>
   );
 }

@@ -1,7 +1,7 @@
 @import 'styles';
 
 .main {
-  @include flexbox(center, center);
+  @include column-flexbox(center, center);
 
   .carouselWrapper {
     position: relative;
