@@ -29,7 +29,7 @@ const Signup = () => {
       <div className="signUpContainer">
         <div className="signUpInfo">
           <div className="infoTitle">기본정보 입력</div>
-          <div className="userName">
+          <div className="user">
             <label className="innerTitle">이름</label>
             <input type="text" name="userName" onChange={handleInput} />
           </div>
@@ -44,6 +44,10 @@ const Signup = () => {
               />
               <span>(영문소문자 / 숫자, 4~16자)</span>
             </div>
+          </div>
+          <div className="user">
+            <label className="innerTitle">이메일</label>
+            <input type="text" name="userEmail" onChange={handleInput} />
           </div>
           <div className="userPw">
             <label className="innerTitle">비밀번호</label>
