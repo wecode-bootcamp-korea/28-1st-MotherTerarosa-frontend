@@ -1,5 +1,32 @@
 @import 'styles';
 
+@mixin innerTitle {
+  width: 120px;
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #f8f8f8;
+  color: #5f5f5f;
+}
+
+@mixin input {
+  text-align: left;
+  margin: 20px;
+  width: 400px;
+  height: 40px;
+  border: 1px solid gray;
+  opacity: 0.5;
+}
+
+@mixin user {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #d7d5d5;
+  width: 100%;
+  height: 70px;
+}
+
 .mainSignUpContainer {
   width: 100%;
   height: 100%;
@@ -43,115 +70,55 @@
       }
 
       .user {
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid #d7d5d5;
-        width: 100%;
-        height: 70px;
+        @include user;
 
         .innerTitle {
-          width: 120px;
-          height: 100%;
-          padding: 10px;
-          display: flex;
-          align-items: center;
-          background-color: #f8f8f8;
-          color: #5f5f5f;
+          @include innerTitle;
         }
 
         input {
-          text-align: left;
-          margin: 20px;
-          width: 400px;
-          height: 40px;
-          border: 1px solid gray;
-          opacity: 0.5;
+          @include input;
         }
       }
 
       .userId {
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid #d7d5d5;
-        width: 100%;
-        height: 70px;
+        @include user;
 
         .innerTitle {
-          width: 120px;
-          height: 100%;
-          padding: 10px;
-          display: flex;
-          align-items: center;
-          background-color: #f8f8f8;
-          color: #5f5f5f;
+          @include innerTitle;
         }
 
         .idInner {
           width: 1000px;
           input {
-            text-align: left;
-            margin: 20px;
-            width: 400px;
-            height: 40px;
-            border: 1px solid gray;
-            opacity: 0.5;
+            @include input;
           }
         }
       }
 
       .userPw {
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid #d7d5d5;
-        width: 100%;
-        height: 70px;
+        @include user;
 
         .innerTitle {
-          width: 120px;
-          height: 100%;
-          padding: 10px;
-          display: flex;
-          align-items: center;
-          background-color: #f8f8f8;
-          color: #5f5f5f;
+          @include innerTitle;
         }
         .pwInner {
           width: 1000px;
           input {
-            text-align: left;
-            margin: 20px;
-            width: 400px;
-            height: 40px;
-            border: 1px solid gray;
-            opacity: 0.5;
+            @include input;
           }
         }
       }
 
       .userPwCheck {
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid #d7d5d5;
-        width: 100%;
-        height: 70px;
+        @include user;
 
         .innerTitle {
-          width: 120px;
-          height: 100%;
-          padding: 10px;
-          display: flex;
-          align-items: center;
-          background-color: #f8f8f8;
-          color: #5f5f5f;
+          @include innerTitle;
         }
 
         input {
-          text-align: left;
-          margin: 20px;
-          width: 400px;
-          height: 40px;
-          border: 1px solid gray;
-          opacity: 0.5;
+          @include input;
         }
       }
 
