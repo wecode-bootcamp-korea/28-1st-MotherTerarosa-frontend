@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { printNumberWithComma } from 'utils/common';
+import { printNumberWithComma } from 'utils/printNumberWithComma';
 import './ProductCard.scss';
 
 function ProductCard(props) {
@@ -12,8 +12,6 @@ function ProductCard(props) {
     description,
     price,
   } = props;
-
-  const priceWithComma = printNumberWithComma(price);
 
   return (
     <div className="productCard">
@@ -28,7 +26,9 @@ function ProductCard(props) {
         </li>
         <li className="productCardTitleEnglish">{enName}</li>
         <li className="productCardDesc">{description}</li>
-        <li className="productCardPrice fontBold">{priceWithComma}원</li>
+        <li className="productCardPrice fontBold">
+          {printNumberWithComma(price)}원
+        </li>
       </ul>
     </div>
   );

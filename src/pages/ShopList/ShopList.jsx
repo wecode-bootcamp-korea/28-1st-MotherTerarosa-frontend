@@ -5,7 +5,7 @@ import ProductList from './ProductList/ProductList';
 import Pagination from './Pagination/Pagination';
 import SkeletonShopList from './SkeletonShopList';
 import { api } from 'config';
-import { fetchData, getProductsRelatedCategory } from 'utils/common';
+import { fetchData, getProductsRelatedCategory } from 'utils/fetchData';
 import './ShopList.scss';
 
 function ShopList() {

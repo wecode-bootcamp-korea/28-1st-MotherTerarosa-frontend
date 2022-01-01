@@ -1,6 +1,18 @@
 @import 'styles';
 
-@mixin skeleton-loading-bar($width: 100, $speed: 2) {
+%skeleton-box-base {
+  border-radius: 5px;
+  background-color: $background;
+}
+
+@mixin skeleton-box($width: 0, $height: 20px, $marginBottom: 0) {
+  @extend %skeleton-box-base;
+  width: $width;
+  height: $height;
+  margin-bottom: $marginBottom;
+}
+
+@mixin skeleton-loading-bar($width: 100px, $speed: 2) {
   overflow: hidden;
   position: relative;
 
@@ -28,7 +40,7 @@
 
     50%,
     100% {
-      transform: translateX($width + px);
+      transform: translateX($width);
     }
   }
 }
@@ -42,25 +54,17 @@
     width: 200px;
 
     .shopListTitle {
-      @include skeleton-loading-bar(200, 4);
-      width: 60%;
-      height: 30px;
-      margin-bottom: 20px;
+      @include skeleton-box(60%, 30px, 20px);
+      @include skeleton-loading-bar(200px, 4);
       padding-left: 14px;
-      border-radius: 5px;
-      background-color: $background;
     }
 
     .categoryList {
       padding-right: 45px;
 
       .categoryItem {
-        @include skeleton-loading-bar(200, 4);
-        width: 120px;
-        height: 20px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-        background-color: $background;
+        @include skeleton-box(120px, 20px, 10px);
+        @include skeleton-loading-bar(200px, 4);
       }
     }
   }
@@ -69,13 +73,9 @@
     width: 100%;
 
     .shopHeader {
-      @include skeleton-loading-bar(340);
-      width: 150px;
-      height: 30px;
-      margin-bottom: 20px;
+      @include skeleton-box(150px, 30px, 20px);
+      @include skeleton-loading-bar(340px);
       margin-left: 13px;
-      border-radius: 5px;
-      background-color: $background;
     }
 
     .productList {
@@ -85,18 +85,14 @@
 
     .productCard {
       .imageWrapper {
-        @include skeleton-loading-bar(340);
+        @extend %skeleton-box-base;
+        @include skeleton-loading-bar(340px);
         margin-bottom: 5px;
-        border-radius: 5px;
-        background-color: $background;
       }
 
       &InfoItem {
-        @include skeleton-loading-bar(340);
-        height: 20px;
-        margin-bottom: 5px;
-        border-radius: 5px;
-        background-color: $background;
+        @include skeleton-box(0, 20px, 5px);
+        @include skeleton-loading-bar(340px);
 
         &.width30 {
           width: 30%;

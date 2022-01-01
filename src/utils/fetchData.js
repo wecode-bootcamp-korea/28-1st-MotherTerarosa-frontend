@@ -1,6 +1,3 @@
-export const printNumberWithComma = number =>
-  number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-
 export async function fetchData(URI) {
   const response = await fetch(URI).then(res => res.json());
   return response.data;
