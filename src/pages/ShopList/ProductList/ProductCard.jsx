@@ -4,7 +4,6 @@ import { printNumberWithComma } from 'utils/printNumberWithComma';
 import './ProductCard.scss';
 
 function ProductCard(props) {
-  // eslint-disable-next-line prettier/prettier
   const {
     image_url: imageUrl,
     product_name: name,

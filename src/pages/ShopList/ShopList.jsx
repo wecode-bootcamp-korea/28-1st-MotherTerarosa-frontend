@@ -17,8 +17,6 @@ function ShopList() {
 
   const { cateNum } = useParams();
 
-  //TODO: isLoading 위치 찾기
-
   useEffect(() => {
     fetchCategories();
   }, []);
