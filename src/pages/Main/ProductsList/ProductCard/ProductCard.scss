@@ -1,0 +1,13 @@
+@import 'styles';
+
+.productCard {
+  padding: 10px;
+
+  .productImg {
+    object-fit: contain;
+  }
+
+  .productName {
+    font-weight: bolder;
+  }
+}

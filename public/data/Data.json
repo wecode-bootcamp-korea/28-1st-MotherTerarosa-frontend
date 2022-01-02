@@ -1,0 +1,85 @@
+{
+  "carouselImages": [
+    "images/carousel/1.jpg",
+    "images/carousel/2.jpg",
+    "images/carousel/3.jpg",
+    "images/carousel/4.jpg"
+  ],
+  "productsLists": [
+    {
+      "id": "1001",
+      "categoryName": "BEST",
+      "products": [
+        {
+          "id": 1,
+          "product_name": "따봉1",
+          "product_name_en": "best1",
+          "price": "2500i0",
+          "description": "시나몬, 다크초콜릿, 버번 위스키",
+          "date": "",
+          "image_url": "images/best/best1.jpg"
+        },
+        {
+          "id": 2,
+          "product_name": "따봉2",
+          "product_name_en": "best2",
+          "price": "25000",
+          "description": "사과, 오렌지, 플로럴",
+          "date": "",
+          "image_url": "images/best/best2.jpg"
+        },
+        {
+          "id": 3,
+          "product_name": "띠봉3",
+          "product_name_en": "best3",
+          "price": "25000",
+          "description": "스모키, 브라운슈거",
+          "date": "",
+          "image_url": "images/best/best3.jpg"
+        }
+      ]
+    },
+    {
+      "id": "1002",
+      "categoryName": "NEW",
+      "products": [
+        {
+          "id": 4,
+          "product_name": "뉴1",
+          "product_name_en": "new1",
+          "price": "25000",
+          "description": "새해 복을 기원하며, 안윤모 작가 그림",
+          "date": "",
+          "image_url": "images/new/new1.jpg"
+        },
+        {
+          "id": 5,
+          "product_name": "뉴2",
+          "product_name_en": "new2",
+          "price": "25000",
+          "description": "향긋한 크리스마스 브레드",
+          "date": "",
+          "image_url": "images/new/new2.jpg"
+        },
+        {
+          "id": 6,
+          "product_name": "뉴3",
+          "product_name_en": "new3",
+          "price": "45000",
+          "description": "다채로운 구성, 크리스마스 한정 에디션",
+          "date": "",
+          "image_url": "images/new/new3.jpg"
+        },
+        {
+          "id": 7,
+          "product_name": "뉴4",
+          "product_name_en": "new4",
+          "price": "35000",
+          "description": "달콤한 선물, 쿠키와 드립백 20개",
+          "date": "",
+          "image_url": "images/new/new4.jpg"
+        }
+      ]
+    }
+  ]
+}

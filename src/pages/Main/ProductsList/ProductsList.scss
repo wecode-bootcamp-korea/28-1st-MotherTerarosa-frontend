@@ -1,0 +1,24 @@
+@import 'styles';
+
+.productsListWrapper {
+  padding: 50px;
+  object-fit: contain;
+
+  h1 {
+    @include flexbox(center, center);
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 40px;
+    font-weight: lighter;
+  }
+
+  .moreShopping {
+    @include flexbox(end, center);
+    margin-right: 20px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bolder;
+    color: $red;
+  }
+  .products {
+    @include flexbox;
+  }
+}
