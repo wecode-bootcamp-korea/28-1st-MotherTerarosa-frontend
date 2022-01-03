@@ -3,7 +3,7 @@
 .globalnav {
   .commonNav {
     @include flexbox(around, center);
-    position: fixed;
+    position: relative;
     z-index: $gnb-level;
     top: 0;
     width: 100%;
@@ -113,6 +113,7 @@
 
   .miniNav {
     height: 83px;
+    position: fixed;
 
     .infoWrapper {
       .personalInfoWrapper {

@@ -1,0 +1,121 @@
+@import 'styles';
+
+@mixin innerTitle {
+  display: flex;
+  align-items: center;
+  width: 120px;
+  height: 100%;
+  padding: 10px;
+  background-color: #f8f8f8;
+  color: #5f5f5f;
+}
+
+@mixin input {
+  text-align: left;
+  margin: 20px;
+  width: 400px;
+  height: 40px;
+  border: 1px solid gray;
+  opacity: 0.5;
+}
+
+@mixin user {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #d7d5d5;
+  width: 100%;
+  height: 70px;
+}
+
+.mainSignUpContainer {
+  margin-top: 200px;
+  width: 100%;
+  height: 100%;
+
+  .signUpLogo {
+    text-align: center;
+    padding: 50px;
+    h1 {
+      font-size: 38px;
+      font-family: 'Open Sans Condensed', sans-serif;
+    }
+
+    span {
+      font-size: 19px;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+  }
+
+  .infoTitle {
+    width: 100%;
+    height: 30px;
+    font-size: 19px;
+    margin-bottom: 5px;
+    border-bottom: 2px solid #000000;
+  }
+
+  .signUpContainer {
+    @include flexbox(center, center);
+    width: 100%;
+    height: 100%;
+
+    .signUpInfo {
+      width: 0 auto;
+      height: 90%;
+
+      span {
+        font-size: 13px;
+        color: #808080;
+      }
+
+      .user {
+        @include user;
+
+        .innerTitle {
+          @include innerTitle;
+        }
+
+        input {
+          @include input;
+        }
+      }
+
+      .userInfo {
+        @include user;
+
+        .innerTitle {
+          @include innerTitle;
+        }
+
+        .userInner {
+          width: 1000px;
+          input {
+            @include input;
+          }
+        }
+      }
+
+      .buttonSetting {
+        @include flexbox(center, center);
+      }
+
+      button {
+        @include flexbox(center, center);
+        margin: 100px 100px 100px 100px;
+        padding: 30px;
+        width: 500px;
+        height: 50px;
+        font-size: 25px;
+        font-weight: bold;
+        color: white;
+        background-color: $black;
+
+        &.invalid {
+          background-color: $black;
+          opacity: 0.3;
+          cursor: disabled;
+        }
+      }
+    }
+  }
+}
