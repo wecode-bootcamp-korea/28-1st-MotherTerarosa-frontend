@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { api } from 'config';
 import './Signup.scss';
 
 const Signup = () => {
@@ -27,25 +28,25 @@ const Signup = () => {
     isIdValid && isEmailValid && isPasswordValid && isSamePassword;
 
   const submitUserInfo = () => {
-    // const { userName, id, email, firstpassword, lastpassword } = formInput;
-    // fetch('http://', {
-    //   method: 'POST',
-    //   body: JSON.stringify({
-    //     userName,
-    //     id,
-    //     email,
-    //     firstpassword,
-    //     lastpassword,
-    //   }),
-    // })
-    //   .then(response => response.json())
-    //   .then(result => {
-    //     if (result.MESSAGE === 'SUCCESS') {
-    //       navigate('/main');
-    //     } else {
-    //       alert('다시 한 번 확인해주세요.');
-    //     }
-    //   });
+    const {
+      userName: name,
+      id: username,
+      email,
+      firstpassword: password,
+    } = formInput;
+
+    fetch(api.signup, {
+      method: 'POST',
+      body: JSON.stringify({ name, username, email, password }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log(result);
+        if (result.message !== 'SUCCESS') {
+          alert('다시 한 번 확인해주세요');
+        }
+        // 예시) if(result.message !== 'SUCCESS') alert('다시 한 번 확인해주세요');
+      });
   };
 
   return (
