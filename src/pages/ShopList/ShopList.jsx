@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import ShopAsideWrapper from './ShopAside/ShopAsideWrapper';
 import ProductList from './ProductList/ProductList';
 import Pagination from './Pagination/Pagination';
