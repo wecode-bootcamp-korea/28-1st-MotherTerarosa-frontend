@@ -39,38 +39,80 @@
         align-items: center;
 
         .login {
-          border: 1px solid gray;
-          width: 50%;
+          padding: 25px;
+          border-top: 3px solid black;
+          border-left: 1px solid #808080;
+          border-right: 1px solid #808080;
+          border-bottom: 1px solid #808080;
+          width: 45%;
           height: 100%;
+          text-align: left;
 
-          span {
+          .loginSpan {
             width: 30%;
+            text-align: left;
+            padding-left: 40px;
           }
           form {
+            margin-top: 20px;
             label {
               display: flex;
               flex-direction: column;
               align-items: center;
 
               input {
-                width: 80%;
+                padding: 5px;
+                margin: 3px;
+                width: 83%;
+                height: 40px;
+                border: 1px solid #808080;
+                opacity: 0.7;
               }
             }
           }
+
+          .loginBtn {
+            background: #d02d28;
+            color: white;
+            width: 405px;
+            height: 40px;
+            margin: 40px;
+            font-size: 20px;
+          }
         }
 
-        .SingupPageInfo {
-          width: 100%;
+        .signUpPageInfo {
+          display: flex;
+          align-items: center;
+          border-top: 1px solid #808080;
+          padding-top: 30px;
+          margin-left: 35px;
+          width: 85%;
           height: 100%;
 
           p {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: left;
             width: 100%;
             height: 100%;
-            font-size: 18px;
+            font-size: 15px;
 
-            span {
-              font-size: 11px;
+            .signUpSpan {
+              width: 100%;
+              height: 100%;
+              font-size: 9px;
             }
+          }
+          .signUpBtn {
+            width: 200px;
+            height: 40px;
+            font-size: 19px;
+            font-weight: 500;
+            background-color: white;
+            color: black;
+            border: 1px solid black;
           }
         }
       }
