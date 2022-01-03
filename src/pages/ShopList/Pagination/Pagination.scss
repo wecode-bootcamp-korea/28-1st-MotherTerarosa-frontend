@@ -1,0 +1,29 @@
+@import 'styles';
+
+.pagination {
+  margin: 30px 0;
+
+  .pageList {
+    @include flexbox(center, center);
+
+    .pageItem {
+      padding: 12px;
+      border: 1px solid $white-gray;
+      border-right: 0;
+
+      &:last-child {
+        border-right: 1px solid $white-gray;
+      }
+
+      &.active {
+        background-color: $dark-gray;
+        color: $white;
+      }
+    }
+
+    .pageLink {
+      padding: 6px;
+      cursor: pointer;
+    }
+  }
+}
