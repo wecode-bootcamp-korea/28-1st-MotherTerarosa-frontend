@@ -15,7 +15,7 @@ function ShopAside(props) {
   return (
     <li className="categoryItem">
       <div className="categoryContent">
-        <Link to={`/shoplist/category/${no}`}>{name}</Link>
+        <Link to={`/shoplist?category=${no}`}>{name}</Link>
         {hasSubCategory && (
           <i
             className={`fas ${isClickedMore ? 'fa-minus' : 'fa-plus'} `}
@@ -28,7 +28,7 @@ function ShopAside(props) {
       <ul className={`categoryList2Dep ${isClickedMore ? 'isActive' : ''} `}>
         {subCategories.map(category => (
           <li key={category.no}>
-            <Link to={`/shoplist/category/${category.no}`}>
+            <Link to={`/shoplist?category=${category.no}`}>
               {category.name}
             </Link>
           </li>
