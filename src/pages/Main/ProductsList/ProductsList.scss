@@ -1,7 +1,8 @@
 @import 'styles';
 
-.productsListWrapper {
-  padding: 50px;
+.productsList {
+  margin: 50px;
+  width: 1240px;
   object-fit: contain;
 
   h1 {
@@ -13,7 +14,7 @@
 
   .moreShopping {
     @include flexbox(end, center);
-    margin-right: 20px;
+    margin-right: 30px;
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: bolder;
     color: $red;

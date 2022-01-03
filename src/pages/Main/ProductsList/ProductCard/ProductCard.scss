@@ -8,6 +8,24 @@
   }
 
   .productName {
-    font-weight: bolder;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .productNameEn {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: $gray;
+    padding-bottom: 7px;
+  }
+  .productDescription {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 15px;
+    color: $gray;
+  }
+  .productDate {
+    font-size: 15px;
+    padding-bottom: 7px;
+  }
+  .productPrice {
+    font-weight: bold;
   }
 }

@@ -13,6 +13,7 @@ export default function ProductCard({ products }) {
       <div className="productNameEn">{products.product_name_en}</div>
       <div className="productDescription">{products.description}</div>
       <div className="productDate">로스팅 : {products.date}</div>
+      <div className="productPrice">{products.price}원</div>
     </section>
   );
 }
