@@ -5,6 +5,7 @@ import { api } from 'config';
 import { fetchData } from 'utils/fetchData';
 import { printNumberWithComma } from 'utils/printNumberWithComma';
 import './ShopDetail.scss';
+import SkeletonShopDetail from './SkeletonShopDetail';
 
 function ShopDetail() {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,8 +13,6 @@ function ShopDetail() {
   const [detailContents, setDetailContents] = useState({});
   const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
-
-  console.log(id);
 
   useEffect(() => {
     fetchCategories();
@@ -27,7 +26,7 @@ function ShopDetail() {
     });
   };
 
-  if (isLoading) return <div>로딩중이다</div>;
+  if (isLoading) return <SkeletonShopDetail />;
 
   return (
     <div className="ShopDetail">
@@ -73,7 +72,7 @@ function ShopDetail() {
             <strong className="productPrice">25,000 원</strong>
           </header>
           <dl className="productDescription">
-            <dt>Tasting Note</dt>
+            <dt>상품설명</dt>
             <dd>라즈베리 거슥 거슥</dd>
           </dl>
           <div className="optionTable">
