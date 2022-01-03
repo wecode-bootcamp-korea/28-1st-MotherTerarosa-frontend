@@ -61,9 +61,9 @@ const Signup = () => {
             <label className="innerTitle">이름</label>
             <input type="text" name="userName" onChange={handleInput} />
           </div>
-          <div className="userId">
+          <div className="userInfo">
             <label className="innerTitle">아이디</label>
-            <div className="idInner">
+            <div className="userInner">
               <input
                 name="id"
                 type="text"
@@ -78,9 +78,9 @@ const Signup = () => {
             <input type="text" name="email" onChange={handleInput} />
             <span>(@ 포함)</span>
           </div>
-          <div className="userPw">
+          <div className="userInfo">
             <label className="innerTitle">비밀번호</label>
-            <div className="pwInner">
+            <div className="userInner">
               <input
                 name="firstpassword"
                 type="password"
@@ -90,7 +90,7 @@ const Signup = () => {
               <span>(5자 이상)</span>
             </div>
           </div>
-          <div className="userPwCheck">
+          <div className="user">
             <label className="innerTitle" name="lastpassword">
               비밀번호 확인
             </label>
