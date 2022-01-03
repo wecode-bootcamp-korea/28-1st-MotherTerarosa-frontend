@@ -1,0 +1,128 @@
+@import 'styles';
+
+.globalnav {
+  .commonNav {
+    @include flexbox(around, center);
+    position: relative;
+    z-index: $gnb-level;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid $border;
+    background-color: $white;
+    transition: height 0.1s linear 0.01s;
+
+    .logoWrapper {
+      @include flexbox;
+      font-size: 43px;
+      font-weight: bolder;
+      cursor: pointer;
+    }
+
+    .categoryWrapper {
+      @include flexbox;
+      font-size: 25px;
+      font-weight: bold;
+      cursor: pointer;
+
+      &:hover::before {
+        position: absolute;
+        border-bottom: 3px solid $red;
+        padding: 0 12px;
+        content: '쇼핑';
+        background-color: $white;
+        color: $red;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+
+    .infoWrapper {
+      @include column-flexbox;
+
+      .personalInfoWrapper {
+        a {
+          @include flexbox;
+          height: 14px;
+          padding: 0 5px;
+          border-right: 1px solid black;
+          margin-bottom: 30px;
+          font-size: 14px;
+          cursor: pointer;
+
+          &:hover {
+            color: $red;
+          }
+
+          &:last-child {
+            border: none;
+          }
+        }
+      }
+
+      .moreInfoWrapper {
+        margin: 6px 10px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+
+        .about {
+          position: relative;
+          margin: 5px;
+
+          &:hover::before {
+            position: absolute;
+            width: 36px;
+            padding: 0 11px;
+            content: '소개';
+            background-color: $white;
+            color: $red;
+            font-size: 16px;
+          }
+        }
+
+        .location {
+          position: relative;
+          margin: 5px;
+
+          &:hover::before {
+            position: absolute;
+            padding: 0 15.5px;
+            content: '위치안내';
+            background-color: $white;
+            color: $red;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .originalNav {
+    height: 158px;
+
+    .infoWrapper {
+      .personalInfoWrapper {
+        @include flexbox;
+      }
+
+      .moreInfoWrapper {
+        @include column-flexbox(center, center);
+      }
+    }
+  }
+
+  .miniNav {
+    height: 83px;
+    position: fixed;
+
+    .infoWrapper {
+      .personalInfoWrapper {
+        display: none;
+      }
+
+      .moreInfoWrapper {
+        @include flexbox(center, center);
+      }
+    }
+  }
+}
