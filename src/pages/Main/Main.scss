@@ -10,7 +10,7 @@
     .carousel {
       @include inline-flexbox(start, center);
       width: 100vw;
-      transition: all 0.1s linear;
+      transition: all 0.5s linear;
 
       img {
         width: 100%;
@@ -32,6 +32,7 @@
       }
     }
   }
+
   .productsListWrapper {
     @include column-flexbox;
     width: 1240px;
