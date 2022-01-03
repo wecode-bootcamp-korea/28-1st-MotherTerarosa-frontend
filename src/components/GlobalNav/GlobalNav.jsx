@@ -23,7 +23,7 @@ function GlobalNav() {
         <Link to="/">
           <div className="logoWrapper">MOTHER TERAROSA</div>
         </Link>
-        <Link to="/shoplist/:category">
+        <Link to="/productlist">
           <div className="categoryWrapper">SHOP</div>
         </Link>
         <div className="infoWrapper">
