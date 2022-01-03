@@ -16,8 +16,8 @@ function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route exact path="/" element={<Main />} />
-        <Route path="/shoplist" element={<ShopList />} />
-        <Route path="/product/:id" element={<ShopDetail />} />
+        <Route path="/productlist" element={<ShopList />} />
+        <Route path="/productdetail/:id" element={<ShopDetail />} />
       </Routes>
       <Footer />
     </BrowserRouter>

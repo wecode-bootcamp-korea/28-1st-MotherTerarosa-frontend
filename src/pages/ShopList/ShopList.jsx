@@ -19,8 +19,6 @@ function ShopList() {
     ? location.search.split('=')[1]
     : '0';
 
-  console.log(`내가 보내는 api 주소 :: ${api.products}?category_no=${cateNum}`);
-
   useEffect(() => {
     fetchCategories();
   }, []);
@@ -41,8 +39,6 @@ function ShopList() {
       setCategories(categories);
     });
   };
-
-  console.log(products);
 
   const fetchProducts = () => {
     if (cateNum) {
