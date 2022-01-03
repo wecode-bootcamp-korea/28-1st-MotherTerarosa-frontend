@@ -7,43 +7,47 @@
   width: 100vw;
   height: 100vh;
 
-  .loginwrapper {
+  .loginWrapper {
     width: 100%;
     height: 100%;
 
     .loginLogo {
       text-align: center;
-      width: 1024px;
-      height: 100px;
+      width: 100%;
+      height: 30px;
 
       h1 {
         width: 100%;
         height: 100%;
-        text-align: center;
+        font-size: 38px;
+        font-family: sans-serif;
       }
 
       h2 {
         width: 100%;
         height: 100%;
       }
-    }
 
-    .loginBox {
-      width: 100%;
-      height: 100%;
+      .loginBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-      .login {
-        width: 100%;
-        height: 100%;
-      }
+        .login {
+          border: 1px solid gray;
+          width: 60%;
+          form {
+          }
+        }
 
-      .SingupPageInfo {
-        width: 100%;
-        height: 100%;
-
-        p {
+        .SingupPageInfo {
           width: 100%;
           height: 100%;
+
+          p {
+            width: 100%;
+            height: 100%;
+          }
         }
       }
     }
