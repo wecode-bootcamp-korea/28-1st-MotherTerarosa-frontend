@@ -1,0 +1,41 @@
+@import 'styles';
+
+.main {
+  @include column-flexbox(center, center);
+
+  .carouselWrapper {
+    position: relative;
+    overflow: hidden;
+
+    .carousel {
+      @include inline-flexbox(start, center);
+      width: 100vw;
+      transition: all 0.5s linear;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .arrowWrapper {
+      @include flexbox(between, center);
+      @include pos-center;
+      top: 50%;
+      width: 100%;
+      z-index: $gnb-level;
+      color: $white;
+
+      .arrow {
+        opacity: 0.8;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .productsListWrapper {
+    @include column-flexbox;
+    width: 1240px;
+    margin: 0 auto;
+  }
+}
