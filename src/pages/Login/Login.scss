@@ -4,8 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100vw;
   height: 100vh;
-  width: 1024vw;
 
   .loginwrapper {
     width: 100%;
@@ -13,12 +13,13 @@
 
     .loginLogo {
       text-align: center;
-      width: 100%;
-      height: 100%;
+      width: 1024px;
+      height: 100px;
 
       h1 {
         width: 100%;
         height: 100%;
+        text-align: center;
       }
 
       h2 {
@@ -28,9 +29,22 @@
     }
 
     .loginBox {
-      .innerLoginBox {
+      width: 100%;
+      height: 100%;
+
+      .login {
         width: 100%;
         height: 100%;
+      }
+
+      .SingupPageInfo {
+        width: 100%;
+        height: 100%;
+
+        p {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
