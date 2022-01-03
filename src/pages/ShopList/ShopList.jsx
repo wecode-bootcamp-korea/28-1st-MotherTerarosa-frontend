@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import ShopAsideWrapper from './ShopAside/ShopAsideWrapper';
 import ProductList from './ProductList/ProductList';
 import Pagination from './Pagination/Pagination';
@@ -9,13 +9,15 @@ import { fetchData, getProductsRelatedCategory } from 'utils/fetchData';
 import './ShopList.scss';
 
 function ShopList() {
+  const location = useLocation();
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const productPerPage = 6;
-
-  const { cateNum } = useParams();
+  const cateNum = location.search.split('=')[1]
+    ? location.search.split('=')[1]
+    : '0';
 
   useEffect(() => {
     fetchCategories();
@@ -42,6 +44,12 @@ function ShopList() {
     if (cateNum) {
       fetchData(api.products).then(data => {
         setProducts(getProductsRelatedCategory(data, cateNum));
+        setIsLoading(false);
+      });
+    }
+    if (!cateNum) {
+      fetchData(api.products).then(data => {
+        setProducts(getProductsRelatedCategory(data, 0));
         setIsLoading(false);
       });
     }
