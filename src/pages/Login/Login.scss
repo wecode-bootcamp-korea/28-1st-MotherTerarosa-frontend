@@ -10,22 +10,27 @@
   .loginWrapper {
     width: 100%;
     height: 100%;
+    padding-top: 100px;
 
     .loginLogo {
       text-align: center;
       width: 100%;
-      height: 30px;
+      height: 50px;
 
       h1 {
         width: 100%;
         height: 100%;
         font-size: 38px;
-        font-family: sans-serif;
+        font-family: 'Open Sans Condensed', sans-serif;
       }
 
       h2 {
+        margin-bottom: 20px;
         width: 100%;
         height: 100%;
+        font-size: 19px;
+        font-family: 'Noto Sans KR', 'Malgun Gothic', Verdana, Dotum,
+          AppleGothic, sans-serif;
       }
 
       .loginBox {
@@ -35,8 +40,22 @@
 
         .login {
           border: 1px solid gray;
-          width: 60%;
+          width: 50%;
+          height: 100%;
+
+          span {
+            width: 30%;
+          }
           form {
+            label {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+
+              input {
+                width: 80%;
+              }
+            }
           }
         }
 
@@ -47,6 +66,11 @@
           p {
             width: 100%;
             height: 100%;
+            font-size: 18px;
+
+            span {
+              font-size: 11px;
+            }
           }
         }
       }

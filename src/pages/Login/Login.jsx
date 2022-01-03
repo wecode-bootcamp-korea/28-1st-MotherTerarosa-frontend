@@ -15,8 +15,6 @@ const Login = () => {
                 <form>
                   <label>
                     <input type="text" name="id" placeholder="아이디" />
-                  </label>
-                  <label>
                     <input type="password" name="pw" placeholder="비밀번호" />
                   </label>
                 </form>
