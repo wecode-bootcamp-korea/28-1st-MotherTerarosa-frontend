@@ -1,0 +1,111 @@
+@import 'styles';
+
+%skeleton-box-base {
+  border-radius: 5px;
+  background-color: $background;
+}
+
+@mixin skeleton-box($width: 0, $height: 20px, $marginBottom: 0) {
+  @extend %skeleton-box-base;
+  width: $width;
+  height: $height;
+  margin-bottom: $marginBottom;
+}
+
+@mixin skeleton-loading-bar($width: 100px, $speed: 2) {
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    animation: loading $speed + s infinite linear;
+    background-image: linear-gradient(
+      90deg,
+      rgba(#fff, 0),
+      rgba(#fff, 0.5),
+      rgba(#fff, 0)
+    );
+    background-size: 40px;
+  }
+
+  @keyframes loading {
+    0% {
+      transform: translateX(0);
+    }
+
+    50%,
+    100% {
+      transform: translateX($width);
+    }
+  }
+}
+
+.skeletonShopList {
+  @include flexbox(start, start);
+  width: 1240px;
+  margin: 0 auto;
+
+  .shopListAside {
+    width: 200px;
+
+    .shopListTitle {
+      @include skeleton-box(60%, 30px, 20px);
+      @include skeleton-loading-bar(200px, 4);
+      padding-left: 14px;
+    }
+
+    .categoryList {
+      padding-right: 45px;
+
+      .categoryItem {
+        @include skeleton-box(120px, 20px, 10px);
+        @include skeleton-loading-bar(200px, 4);
+      }
+    }
+  }
+
+  .shopListContent {
+    width: 100%;
+
+    .shopHeader {
+      @include skeleton-box(150px, 30px, 20px);
+      @include skeleton-loading-bar(340px);
+      margin-left: 13px;
+    }
+
+    .productList {
+      @include flexbox(start, start);
+      flex-wrap: wrap;
+    }
+
+    .productCard {
+      .imageWrapper {
+        @extend %skeleton-box-base;
+        @include skeleton-loading-bar(340px);
+        margin-bottom: 5px;
+      }
+
+      &InfoItem {
+        @include skeleton-box(0, 20px, 5px);
+        @include skeleton-loading-bar(340px);
+
+        &.width30 {
+          width: 30%;
+        }
+
+        &.width50 {
+          width: 50%;
+        }
+
+        &.width70 {
+          width: 70%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@import 'styles';
+
+.shopList {
+  @include flexbox(start, start);
+  width: 1240px;
+  margin: 0 auto;
+
+  .shopListContent {
+    width: 100%;
+
+    .shopHeader {
+      margin-bottom: 20px;
+      padding-left: 10px;
+    }
+
+    .productList {
+      @include flexbox(start, start);
+      flex-wrap: wrap;
+    }
+  }
+}
