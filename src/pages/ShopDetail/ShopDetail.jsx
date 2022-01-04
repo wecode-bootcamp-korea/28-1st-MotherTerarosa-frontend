@@ -37,14 +37,17 @@ function ShopDetail() {
       <main className="shopDetailMain">
         <div className="imgArea">
           <div className="bigImage">
-            <img src={productDetail.image_url[0]} alt="상품디테일이미지" />
+            <img
+              src={productDetail.image_url[0]}
+              alt={`${productDetail.name}상품 이미지`}
+            />
           </div>
           <ul className="thumbnailList">
             <li className="thumbnailItem">
-              <img src={productDetail.image_url[1]} alt="" />
+              <img src={productDetail.image_url[0]} alt="" />
             </li>
             <li className="thumbnailItem">
-              <img src={productDetail.image_url[2]} alt="" />
+              <img src={productDetail.image_url[1]} alt="" />
             </li>
             <li className="thumbnailItem">
               <img
@@ -53,7 +56,7 @@ function ShopDetail() {
               />
             </li>
             <li className="thumbnailItem">
-              <img src={productDetail.image_url[3]} alt="" />
+              <img src={productDetail.image_url[2]} alt="" />
             </li>
           </ul>
         </div>
