@@ -16,10 +16,12 @@ const useFetch = opts => {
         data,
       });
     });
-  }, [opts.queryString]);
+    return () => {
+      setState({ ...state, loading: true });
+    };
+  }, [opts.trigger]);
 
   if (!opts.url) return;
-  console.log(state);
 
   return { ...state };
 };
