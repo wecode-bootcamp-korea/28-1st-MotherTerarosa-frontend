@@ -7,33 +7,21 @@ const useFetch = opts => {
     error: null,
     data: null,
   });
-  const [trigger, setTrigger] = useState(0);
-
-  const refetch = () => {
-    setState({
-      ...state,
-      loading: true,
-    });
-    setTrigger(Date.now());
-  };
 
   useEffect(() => {
-    fetchData(opts.url)
-      .then(data => {
-        setState({
-          ...state,
-          loading: false,
-          data,
-        });
-      })
-      .catch(error => {
-        setState({ ...state, loading: false, error });
+    fetchData(opts.url).then(data => {
+      setState({
+        ...state,
+        loading: false,
+        data,
       });
-  }, [trigger]);
+    });
+  }, [opts.queryString]);
 
   if (!opts.url) return;
+  console.log(state);
 
-  return { ...state, refetch };
+  return { ...state };
 };
 
 export default useFetch;

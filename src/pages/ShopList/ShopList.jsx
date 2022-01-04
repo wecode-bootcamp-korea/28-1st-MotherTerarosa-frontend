@@ -7,6 +7,7 @@ import SkeletonShopList from './SkeletonShopList';
 import { api } from 'config';
 import { fetchData, getProductsRelatedCategory } from 'utils/fetchData';
 import './ShopList.scss';
+import useFetch from 'Hooks/useFetch';
 
 function ShopList() {
   const location = useLocation();
@@ -40,10 +41,15 @@ function ShopList() {
     });
   };
 
+  const { data, loading } = useFetch({
+    url: `${api.products}?category_no=${cateNum}`,
+    queryString: cateNum,
+  });
+
   const fetchProducts = () => {
     if (cateNum) {
       fetchData(`${api.products}?category_no=${cateNum}`).then(data => {
-        setProducts(getProductsRelatedCategory(data, cateNum));
+        setProducts(data.products);
         setIsLoading(false);
       });
     }

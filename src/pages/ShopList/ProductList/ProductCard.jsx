@@ -5,23 +5,26 @@ import './ProductCard.scss';
 
 function ProductCard(props) {
   const {
-    image_url: imageUrl,
+    id,
+    thumbnail_image_url: imageUrl,
     product_name: name,
     product_name_en: enName,
     description,
     price,
   } = props;
 
+  const linkUrl = `/productdetail/${id}`;
+
   return (
     <div className="productCard">
       <div className="imageWrapper">
-        <Link to="#">
+        <Link to={linkUrl}>
           <img src={imageUrl} alt={name} />
         </Link>
       </div>
       <ul className="productCardInfo">
         <li className="titleFont">
-          <Link to="#">{name}</Link>
+          <Link to={linkUrl}>{name}</Link>
         </li>
         <li className="productCardTitleEnglish">{enName}</li>
         <li className="productCardDesc">{description}</li>
