@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { fetchData } from 'utils/fetchData';
 
 const useFetch = opts => {
   const [state, setState] = useState({
@@ -9,18 +8,20 @@ const useFetch = opts => {
   });
 
   useEffect(() => {
-    fetchData(opts.url)
+    fetch(opts.url)
+      .then(response => response.json())
       .then(data => {
+        console.log(data);
         setState({
           ...state,
           loading: false,
-          data,
+          data: data.result,
         });
-      })
-      .catch(error => {
-        setState({ ...state, loading: false, error });
       });
-  }, []);
+    return () => {
+      setState({ ...state, loading: true });
+    };
+  }, [opts.trigger]);
 
   if (!opts.url) return;
 

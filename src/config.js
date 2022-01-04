@@ -1,7 +1,7 @@
-const BASE_URL = 'http://10.58.4.119:8000';
+const BASE_URL = 'http://localhost:3000/data';
 
 export const api = {
   categories: BASE_URL + '/categories.json',
   products: BASE_URL + '/products.json',
-  detail: BASE_URL + '/products/productdetail',
+  detail: BASE_URL + '/productDetail.json',
 };
