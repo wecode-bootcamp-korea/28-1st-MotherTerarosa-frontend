@@ -42,7 +42,7 @@ function ShopList() {
 
   const fetchProducts = () => {
     if (cateNum) {
-      fetchData(api.products).then(data => {
+      fetchData(`${api.products}?category_no=${cateNum}`).then(data => {
         setProducts(getProductsRelatedCategory(data, cateNum));
         setIsLoading(false);
       });
