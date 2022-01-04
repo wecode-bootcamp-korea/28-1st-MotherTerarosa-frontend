@@ -1,6 +1,10 @@
 @import 'styles';
 
 .globalnav {
+  &.marginNav {
+    margin-bottom: 200px;
+  }
+
   .commonNav {
     @include flexbox(around, center);
     position: relative;

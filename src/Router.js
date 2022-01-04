@@ -7,6 +7,7 @@ import Signup from 'pages/Signup/Signup';
 import Main from 'pages/Main/Main';
 import ShopList from 'pages/ShopList/ShopList';
 import ShopDetail from 'pages/ShopDetail/ShopDetail';
+import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 
 function Router() {
   return (
@@ -15,9 +16,10 @@ function Router() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route exact path="/" element={<Main />} />
+        <Route path="/" element={<Main />} />
         <Route path="/productlist" element={<ShopList />} />
         <Route path="/productdetail/:id" element={<ShopDetail />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
