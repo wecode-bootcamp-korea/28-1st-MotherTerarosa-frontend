@@ -41,7 +41,6 @@ const Signup = () => {
     })
       .then(response => response.json())
       .then(result => {
-        console.log(result);
         if (result.message === 'ALREADY_EXIST_USERNAME') {
           alert('아이디를 확인해 주세요');
         } else if (result.message === 'ALREADY_EXIST_EMAIL') {
