@@ -28,7 +28,7 @@ const Signup = () => {
 
   const submitUserInfo = () => {
     // const { userName, id, email, firstpassword, lastpassword } = formInput;
-    // fetch('http://', {
+    // fetch('', {
     //   method: 'POST',
     //   body: JSON.stringify({
     //     userName,

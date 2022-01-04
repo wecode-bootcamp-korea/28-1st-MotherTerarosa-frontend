@@ -16,23 +16,22 @@ const Login = () => {
   };
 
   const handleLogin = () => {
+    const { id: username, pw: password } = formInput;
     fetch('', {
       method: 'POST',
       body: JSON.stringify({
-        id,
-        pw,
+        username,
+        password,
       }),
     })
       .then(response => response.json())
       .then(result => {
-        if (result.message === 'INVALID EMAIL') {
-          alert('존재하지 않는 아이디입니다');
-        } else if (result.message === 'INVALID PASSWORD') {
-          alert('비밀번호가 틀렸습니다');
-        } else if (result.message === 'SUCCESS') {
-          localStorage.setItem('token', result.access_token);
+        if (result.message === 'INVALID_USER') {
+          alert('아이디 또는 비밀번호를 확인해주세요.');
+        } else if (result.message === 'LOGIN SUCCESS') {
+          localStorage.setItem('token', result.token);
           alert('환영합니다!');
-          navigate('/main');
+          navigate('/');
         }
       });
   };
