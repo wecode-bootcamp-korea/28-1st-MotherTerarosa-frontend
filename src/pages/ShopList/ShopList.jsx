@@ -27,7 +27,7 @@ function ShopList() {
     url: `${api.products}?category_no=${cateNum}`,
     trigger: cateNum,
   });
-  const { data: categoryInfo, loading: isCategoryLoading } = useFetch({
+  const { data: categories, loading: isCategoryLoading } = useFetch({
     url: api.categories,
   });
 
@@ -41,10 +41,7 @@ function ShopList() {
 
   return (
     <div className="shopList">
-      <ShopAsideWrapper
-        categories={categoryInfo.categories}
-        cateNum={cateNum}
-      />
+      <ShopAsideWrapper categories={categories} cateNum={cateNum} />
       <main className="shopListContent">
         <header className="shopHeader">
           <h3 className="titleFont">SHOP</h3>
