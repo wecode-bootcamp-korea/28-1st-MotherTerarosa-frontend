@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import ShopAsideWrapper from './ShopAside/ShopAsideWrapper';
+import ShopAsideWrapper from 'components/ShopAside/ShopAsideWrapper';
 import { api } from 'config';
 import { fetchData } from 'utils/fetchData';
 import { printNumberWithComma } from 'utils/printNumberWithComma';
-import './ShopDetail.scss';
-import SkeletonShopDetail from './SkeletonShopDetail';
 import useFetch from 'Hooks/useFetch';
+import SkeletonShopDetail from './SkeletonShopDetail';
+import './ShopDetail.scss';
+import ProductImageList from './ProductImageList/ProductImageList';
 
 function ShopDetail() {
   const { id } = useParams();
@@ -43,21 +44,9 @@ function ShopDetail() {
             />
           </div>
           <ul className="thumbnailList">
-            <li className="thumbnailItem">
-              <img src={productDetail.image_url[0]} alt="" />
-            </li>
-            <li className="thumbnailItem">
-              <img src={productDetail.image_url[1]} alt="" />
-            </li>
-            <li className="thumbnailItem">
-              <img
-                src="https://terarosa.com/web/product/extra/small/202112/d5be7bb80099ef56c9077e09baa2e0ec.jpg"
-                alt=""
-              />
-            </li>
-            <li className="thumbnailItem">
-              <img src={productDetail.image_url[2]} alt="" />
-            </li>
+            {productDetail.image_url.map(image => (
+              <ProductImageList image={image} />
+            ))}
           </ul>
         </div>
         <section className="productInfo">
