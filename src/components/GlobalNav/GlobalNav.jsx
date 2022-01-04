@@ -16,14 +16,14 @@ function GlobalNav() {
   });
 
   return (
-    <header className="globalnav">
+    <header className={`globalnav ${scrollPosition ? 'marginNav' : ''}`}>
       <div
-        className={`commonNav ${!scrollPosition ? 'originalNav' : 'miniNav'}`}
+        className={`commonNav ${scrollPosition ? 'miniNav' : 'originalNav'}`}
       >
         <Link to="/">
           <div className="logoWrapper">MOTHER TERAROSA</div>
         </Link>
-        <Link to="/shoplist/category/0">
+        <Link to="/productlist">
           <div className="categoryWrapper">SHOP</div>
         </Link>
         <div className="infoWrapper">
