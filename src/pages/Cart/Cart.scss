@@ -1,0 +1,32 @@
+@import 'styles';
+
+.cart {
+  @include column-flexbox(center, stretch);
+  margin: 30px;
+
+  .path {
+    @include flexbox(end, center);
+  }
+
+  .titleWrapper {
+    @include column-flexbox;
+    padding-bottom: 40px;
+    font-size: 30px;
+  }
+
+  .selectedItems {
+    border: 1px solid gray;
+
+    .tableHeader {
+      background-color: #f7f7f8;
+      height: 30px;
+    }
+  }
+
+  .totalPriceWrapper {
+    @include flexbox;
+    width: 100%;
+    margin: 30px;
+    font-weight: bolder;
+  }
+}

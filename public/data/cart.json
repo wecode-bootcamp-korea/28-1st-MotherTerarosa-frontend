@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "product_name": "러블리 큐티 주문품목1",
+    "price": "25000",
+    "quantity": 5,
+    "delivery_price": "무료",
+    "img_url": "images/cart/coffee1.jpg"
+  },
+  {
+    "id": 2,
+    "product_name": "쏘나이쓰 주문품목2",
+    "price": "30000",
+    "quantity": 3,
+    "delivery_price": "무료",
+    "img_url": "images/cart/coffee2.jpg"
+  },
+  {
+    "id": 3,
+    "product_name": "어도러블 주문품목3",
+    "price": "35000",
+    "quantity": 2,
+    "delivery_price": "무료",
+    "img_url": "images/cart/coffee3.jpg"
+  }
+]
