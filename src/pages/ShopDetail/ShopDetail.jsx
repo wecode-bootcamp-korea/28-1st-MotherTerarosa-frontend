@@ -44,8 +44,8 @@ function ShopDetail() {
             />
           </div>
           <ul className="thumbnailList">
-            {productDetail.image_url.map(image => (
-              <ProductImageList image={image} />
+            {productDetail.image_url.map((image, index) => (
+              <ProductImageList key={index} image={image} />
             ))}
           </ul>
         </div>
