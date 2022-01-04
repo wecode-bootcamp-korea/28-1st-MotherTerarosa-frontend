@@ -1,6 +1,6 @@
 export async function fetchData(URI) {
   const response = await fetch(URI).then(res => res.json());
-  return response.data;
+  return response.result;
 }
 
 export function getProductsRelatedCategory(fetchedData, categoryId) {

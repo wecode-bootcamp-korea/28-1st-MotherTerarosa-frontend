@@ -7,15 +7,6 @@ const useFetch = opts => {
     error: null,
     data: null,
   });
-  const [trigger, setTrigger] = useState(0);
-
-  const refetch = () => {
-    setState({
-      ...state,
-      loading: true,
-    });
-    setTrigger(Date.now());
-  };
 
   useEffect(() => {
     fetchData(opts.url)
@@ -29,11 +20,11 @@ const useFetch = opts => {
       .catch(error => {
         setState({ ...state, loading: false, error });
       });
-  }, [trigger]);
+  }, []);
 
   if (!opts.url) return;
 
-  return { ...state, refetch };
+  return { ...state };
 };
 
 export default useFetch;

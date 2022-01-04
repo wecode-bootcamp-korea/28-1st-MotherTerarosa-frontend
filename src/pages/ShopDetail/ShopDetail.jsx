@@ -6,13 +6,16 @@ import { fetchData } from 'utils/fetchData';
 import { printNumberWithComma } from 'utils/printNumberWithComma';
 import './ShopDetail.scss';
 import SkeletonShopDetail from './SkeletonShopDetail';
+import useFetch from 'Hooks/useFetch';
 
 function ShopDetail() {
+  const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [categories, setCategories] = useState([]);
-  const [detailContents, setDetailContents] = useState({});
   const [quantity, setQuantity] = useState(1);
-  const { id } = useParams();
+  const { data: productDetail, loading } = useFetch({
+    url: `${api.detail}/${id}`,
+  });
 
   useEffect(() => {
     fetchCategories();
@@ -26,7 +29,7 @@ function ShopDetail() {
     });
   };
 
-  if (isLoading) return <SkeletonShopDetail />;
+  if (loading) return <SkeletonShopDetail />;
 
   return (
     <div className="ShopDetail">
@@ -34,23 +37,14 @@ function ShopDetail() {
       <main className="shopDetailMain">
         <div className="imgArea">
           <div className="bigImage">
-            <img
-              src="https://terarosa.com/web/product/extra/big/202112/3761f9546affdc6e083d42453af832f1.jpg"
-              alt="상품디테일이미지"
-            />
+            <img src={productDetail.image_url[0]} alt="상품디테일이미지" />
           </div>
           <ul className="thumbnailList">
             <li className="thumbnailItem">
-              <img
-                src="https://terarosa.com/web/product/small/202112/9ec978dd3e829c01e3a2817b22d4410b.jpg"
-                alt=""
-              />
+              <img src={productDetail.image_url[1]} alt="" />
             </li>
             <li className="thumbnailItem">
-              <img
-                src="https://terarosa.com/web/product/extra/small/202112/1461d46676614852a3cda0afbebd951d.jpg"
-                alt=""
-              />
+              <img src={productDetail.image_url[2]} alt="" />
             </li>
             <li className="thumbnailItem">
               <img
@@ -59,16 +53,13 @@ function ShopDetail() {
               />
             </li>
             <li className="thumbnailItem">
-              <img
-                src="	https://terarosa.com/web/product/extra/small/202112/3761f9546affdc6e083d42453af832f1.jpg"
-                alt=""
-              />
+              <img src={productDetail.image_url[3]} alt="" />
             </li>
           </ul>
         </div>
         <section className="productInfo">
           <header>
-            <h1 className="productTitle">제품명</h1>
+            <h1 className="productTitle">제목</h1>
             <strong className="productPrice">25,000 원</strong>
           </header>
           <dl className="productDescription">
