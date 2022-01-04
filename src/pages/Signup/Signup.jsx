@@ -21,7 +21,7 @@ const Signup = () => {
   };
 
   const isIdValid = formInput.id.length >= 4 && formInput.id.length < 16;
-  const isPasswordValid = formInput.firstpassword.length >= 5;
+  const isPasswordValid = formInput.firstpassword.length >= 8;
   const isEmailValid = formInput.email.includes('@');
   const isSamePassword = formInput.firstpassword === formInput.lastpassword;
   const isFormValid =
@@ -42,10 +42,14 @@ const Signup = () => {
       .then(response => response.json())
       .then(result => {
         console.log(result);
-        if (result.message !== 'SUCCESS') {
-          alert('다시 한 번 확인해주세요');
+        if (result.message === 'ALREADY_EXIST_USERNAME') {
+          alert('아이디를 확인해 주세요');
+        } else if (result.message === 'ALREADY_EXIST_EMAIL') {
+          alert('이메일을 확인해 주세요');
+        } else if (result.message === 'CREATE ACCOUNT SUCCESS') {
+          alert('회원가입을 축하합니다');
+          navigate('/');
         }
-        // 예시) if(result.message !== 'SUCCESS') alert('다시 한 번 확인해주세요');
       });
   };
 
@@ -88,7 +92,7 @@ const Signup = () => {
                 onChange={handleInput}
                 value={formInput.firstpassword}
               />
-              <span>(5자 이상)</span>
+              <span>(8자 이상)</span>
             </div>
           </div>
           <div className="user">
