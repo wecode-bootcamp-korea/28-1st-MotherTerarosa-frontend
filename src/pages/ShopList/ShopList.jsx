@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import ShopAsideWrapper from './ShopAside/ShopAsideWrapper';
+import ShopAsideWrapper from 'components/ShopAside/ShopAsideWrapper';
 import ProductList from './ProductList/ProductList';
 import Pagination from './Pagination/Pagination';
 import SkeletonShopList from './SkeletonShopList';
