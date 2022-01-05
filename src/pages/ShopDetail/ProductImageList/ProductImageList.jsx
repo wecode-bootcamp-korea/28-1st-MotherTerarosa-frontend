@@ -1,8 +1,15 @@
 import React from 'react';
 
-function ProductImageList({ image }) {
+function ProductImageList(props) {
+  const { image, index, changeThumbnailImage } = props;
+
   return (
-    <li className="thumbnailItem">
+    <li
+      className="thumbnailItem"
+      onClick={() => {
+        changeThumbnailImage(index);
+      }}
+    >
       <img src={image} alt="" />
     </li>
   );
