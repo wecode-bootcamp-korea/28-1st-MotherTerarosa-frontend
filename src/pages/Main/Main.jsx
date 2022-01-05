@@ -10,7 +10,7 @@ function Main() {
   const [productsList, setProductsList] = useState([]);
   const imgRef = useRef(null);
 
-  // 데이터 와라
+  // 데이터 받는용
   // useEffect(() => {
   //   fetch(api.main)
   //     .then(res => res.json())
@@ -26,8 +26,7 @@ function Main() {
 
   useEffect(() => {
     const getNextImgByTimer = () => getNextImg();
-    const timer = setTimeout(getNextImgByTimer, 1000);
-    console.log(currentImg);
+    const timer = setTimeout(getNextImgByTimer, 2000);
     return () => {
       clearTimeout(timer);
     };
@@ -47,7 +46,7 @@ function Main() {
     <main className="main">
       <div className="carouselWrapper">
         <div className="carousel" ref={imgRef}>
-          {/* 해당부분 링크는 열어주시는 분 아이피로 수정 요함 */}
+          {/* 해당부분 링크는 서버 열어주시는 분 아이피로 수정 요함 */}
           {/* <Link to="http://10.58.7.78:8000/products/productdetail/3"> */}
           <img alt="1" src="images/carousel/01.jpg" />
           {/* </Link> */}
