@@ -1,0 +1,24 @@
+{
+  "carouselImages": [
+    {
+      "id": "1",
+      "image_url": "images/carousel/01.jpg",
+      "link_to": "http://10.58.6.238:8000/products/productdetail/3"
+    },
+    {
+      "id": "2",
+      "image_url": "images/carousel/02.jpg",
+      "link_to": "http://10.58.6.238:8000/products/productdetail/4"
+    },
+    {
+      "id": "3",
+      "image_url": "images/carousel/03.jpg",
+      "link_to": "http://10.58.6.238:8000/products/productdetail/12"
+    },
+    {
+      "id": "5",
+      "image_url": "images/carousel/05.jpeg",
+      "link_to": "http://10.58.6.238:8000/products/productdetail/14"
+    }
+  ]
+}

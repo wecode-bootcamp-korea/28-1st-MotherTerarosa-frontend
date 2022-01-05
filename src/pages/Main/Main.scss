@@ -5,16 +5,19 @@
 
   .carouselWrapper {
     position: relative;
+    overflow: hidden;
 
     .carousel {
       @include inline-flexbox(start, center);
       transition: all 0.5s linear;
 
-      // a {
+      a {
+        display: block;
+      }
+
       img {
         width: 100%;
       }
-      // }
     }
 
     .arrowWrapper {

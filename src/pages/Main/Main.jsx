@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { api } from 'config.js';
 import ProductsList from './ProductsList/ProductsList';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
@@ -11,14 +11,14 @@ function Main() {
   const imgRef = useRef(null);
 
   // 데이터 받는용
-  // useEffect(() => {
-  //   fetch(api.main)
-  //     .then(res => res.json())
-  //     .then(result => {
-  //       setProductsList(result.result);
-  //       console.log(result.result);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch(api.main)
+      .then(res => res.json())
+      .then(result => {
+        setProductsList(result.result);
+        // console.log(result.result);
+      });
+  }, []);
 
   useEffect(() => {
     imgRef.current.style.transform = `translateX(-${currentImg}00%)`;
@@ -31,6 +31,12 @@ function Main() {
       clearTimeout(timer);
     };
   }, [currentImg]);
+
+  const navigate = useNavigate();
+
+  const goToDetailPage = e => {
+    navigate(e.target.alt);
+  };
 
   const getPreImg = () => {
     if (currentImg === 0) return;
@@ -46,19 +52,26 @@ function Main() {
     <main className="main">
       <div className="carouselWrapper">
         <div className="carousel" ref={imgRef}>
-          {/* 해당부분 링크는 서버 열어주시는 분 아이피로 수정 요함 */}
-          {/* <Link to="http://10.58.7.78:8000/products/productdetail/3"> */}
-          <img alt="1" src="images/carousel/01.jpg" />
-          {/* </Link> */}
-          {/* <Link to="http://10.58.7.78:8000/products/productdetail/4"> */}
-          <img alt="2" src="images/carousel/02.jpg" />
-          {/* </Link> */}
-          {/* <Link to="http://10.58.7.78:8000/products/productdetail/12"> */}
-          <img alt="3" src="images/carousel/03.jpg" />
-          {/* </Link> */}
-          {/* <Link to="http://10.58.7.78:8000/products/productdetail/14"> */}
-          <img alt="5" src="images/carousel/05.jpeg" />
-          {/* </Link> */}
+          <img
+            alt="/products/productdetail/3"
+            src="images/carousel/01.jpg"
+            onClick={goToDetailPage}
+          />
+          <img
+            alt="/products/productdetail/4"
+            src="images/carousel/02.jpg"
+            onClick={goToDetailPage}
+          />
+          <img
+            alt="/products/productdetail/12"
+            src="images/carousel/03.jpg"
+            onClick={goToDetailPage}
+          />
+          <img
+            alt="/products/productdetail/14"
+            src="images/carousel/05.jpeg"
+            onClick={goToDetailPage}
+          />
         </div>
         <div className="arrowWrapper">
           <MdKeyboardArrowLeft
@@ -76,8 +89,8 @@ function Main() {
         </div>
       </div>
       <div className="productsListWrapper">
-        {productsList.map(productsLists => (
-          <ProductsList key={productsLists.id} productsLists={productsLists} />
+        {productsList.map((productsLists, idx) => (
+          <ProductsList key={idx} productsLists={productsLists} />
         ))}
       </div>
     </main>
