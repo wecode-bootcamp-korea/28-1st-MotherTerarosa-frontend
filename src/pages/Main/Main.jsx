@@ -6,9 +6,16 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import './Main.scss';
 
 function Main() {
+  const [carousel, setCarousel] = useState([]);
   const [currentImg, setCurrentImg] = useState(0);
   const [productsList, setProductsList] = useState([]);
   const imgRef = useRef(null);
+
+  useEffect(() => {
+    fetch('data/carousel_data.json')
+      .then(res => res.json())
+      .then(data => setCarousel(data.carouselImages));
+  }, []);
 
   // 데이터 받는용
   useEffect(() => {
@@ -34,8 +41,10 @@ function Main() {
 
   const navigate = useNavigate();
 
-  const goToDetailPage = e => {
-    navigate(e.target.alt);
+  const goToDetailPage = link => {
+    console.log(link);
+    //needConfirm
+    navigate(`${link}`);
   };
 
   const getPreImg = () => {
@@ -52,26 +61,15 @@ function Main() {
     <main className="main">
       <div className="carouselWrapper">
         <div className="carousel" ref={imgRef}>
-          <img
-            alt="/products/productdetail/3"
-            src="images/carousel/01.jpg"
-            onClick={goToDetailPage}
-          />
-          <img
-            alt="/products/productdetail/4"
-            src="images/carousel/02.jpg"
-            onClick={goToDetailPage}
-          />
-          <img
-            alt="/products/productdetail/12"
-            src="images/carousel/03.jpg"
-            onClick={goToDetailPage}
-          />
-          <img
-            alt="/products/productdetail/14"
-            src="images/carousel/05.jpeg"
-            onClick={goToDetailPage}
-          />
+          {carousel.map(carousel => (
+            <img
+              key={carousel.id}
+              src={carousel.image_url}
+              alt={carousel.id}
+              onClick={() => goToDetailPage(carousel.link_to)}
+            />
+          ))}
+          ;
         </div>
         <div className="arrowWrapper">
           <MdKeyboardArrowLeft
