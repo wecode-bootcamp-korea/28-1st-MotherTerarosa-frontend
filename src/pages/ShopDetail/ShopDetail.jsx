@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ShopAsideWrapper from 'components/ShopAside/ShopAsideWrapper';
 import ProductImageArea from './ProductImageList/ProductImageArea';
+import ProductInfo from './ProductInfo/ProductInfo';
 import SkeletonShopDetail from './SkeletonShopDetail';
 import { api } from 'config';
-import useFetch from 'Hooks/useFetch';
+import useFetch from 'hooks/useFetch';
 import './ShopDetail.scss';
-import ProductInfo from './ProductInfo/ProductInfo';
 
 function ShopDetail() {
   const { id } = useParams();
@@ -21,10 +21,10 @@ function ShopDetail() {
 
   const handleQuantity = e => {
     const { className } = e.target;
-    if (className === 'fas fa-plus') setQuantity(quantity + 1);
+    if (className === 'fas fa-plus') setQuantity(quantity => quantity + 1);
     if (className === 'fas fa-minus') {
       if (quantity === 1) return;
-      setQuantity(quantity - 1);
+      setQuantity(quantity => quantity - 1);
     }
   };
 
