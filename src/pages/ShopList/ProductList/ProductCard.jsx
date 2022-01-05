@@ -27,7 +27,9 @@ function ProductCard(props) {
           <Link to={linkUrl}>{name}</Link>
         </li>
         <li className="productCardTitleEnglish">{enName}</li>
-        <li className="productCardDesc">{description}</li>
+        <li className="productCardDesc">
+          {description ? description : '마더테라로사 대표상품'}
+        </li>
         <li className="productCardPrice fontBold">
           {printNumberWithComma(price)}원
         </li>

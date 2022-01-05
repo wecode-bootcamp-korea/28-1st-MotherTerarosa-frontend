@@ -5,14 +5,12 @@ import ProductList from './ProductList/ProductList';
 import Pagination from './Pagination/Pagination';
 import SkeletonShopList from './SkeletonShopList';
 import { api } from 'config';
-import useFetch from 'Hooks/useFetch';
+import useFetch from 'hooks/useFetch';
 import './ShopList.scss';
 
 function ShopList() {
   const location = useLocation();
-  const cateNum = location.search.split('=')[1]
-    ? location.search.split('=')[1]
-    : '0';
+  const cateNum = location.search.split('=')[1];
 
   const [currentPage, setCurrentPage] = useState(1);
   const productPerPage = 6;
@@ -24,7 +22,7 @@ function ShopList() {
   };
 
   const { data: productsInfo, loading: isProductsLoading } = useFetch({
-    url: `${api.products}?category_no=${cateNum}`,
+    url: `${api.products}${cateNum ? '?category=' + cateNum : ''}`,
     trigger: cateNum,
   });
   const { data: categories, loading: isCategoryLoading } = useFetch({
@@ -41,7 +39,10 @@ function ShopList() {
 
   return (
     <div className="shopList">
-      <ShopAsideWrapper categories={categories} cateNum={cateNum} />
+      <ShopAsideWrapper
+        categories={categories}
+        cateNum={cateNum ? cateNum : '0'}
+      />
       <main className="shopListContent">
         <header className="shopHeader">
           <h3 className="titleFont">SHOP</h3>
