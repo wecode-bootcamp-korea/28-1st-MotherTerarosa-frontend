@@ -3,7 +3,6 @@
 .productsList {
   margin: 50px;
   width: 1240px;
-  object-fit: contain;
 
   h1 {
     @include flexbox(center, center);
@@ -21,5 +20,6 @@
   }
   .products {
     @include flexbox;
+    width: 1240px;
   }
 }

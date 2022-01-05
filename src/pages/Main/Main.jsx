@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ProductsList from './ProductsList/ProductsList';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
+import { api } from 'config.js';
 import './Main.scss';
 
 function Main() {
@@ -9,12 +10,17 @@ function Main() {
   const [productsList, setProductsList] = useState([]);
   const imgRef = useRef(null);
 
+  // useEffect(() => {
+  //   fetch(api.main)
+  //     .then(res => res.json())
+  //     .then(result => {
+  //       setProductsList(result.result);
+  //     });
+  // }, []);
   useEffect(() => {
-    // fetch('http://localhost:30000/data/Data.json'
-    fetch('data/Data.json')
+    fetch('data/data.json')
       .then(res => res.json())
       .then(data => {
-        setCarouselImg(data.carouselImages);
         setProductsList(data.productsLists);
       });
   }, []);

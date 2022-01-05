@@ -50,7 +50,7 @@
           "price": "25000",
           "description": "새해 복을 기원하며, 안윤모 작가 그림",
           "date": "",
-          "image_url": "images/new/new1.jpg"
+          "image_url": "images/best/best1.jpg"
         },
         {
           "id": 5,
@@ -59,7 +59,7 @@
           "price": "25000",
           "description": "향긋한 크리스마스 브레드",
           "date": "",
-          "image_url": "images/new/new2.jpg"
+          "image_url": "images/best/best1.jpg"
         },
         {
           "id": 6,
@@ -68,7 +68,7 @@
           "price": "45000",
           "description": "다채로운 구성, 크리스마스 한정 에디션",
           "date": "",
-          "image_url": "images/new/new3.jpg"
+          "image_url": "images/best/best1.jpg"
         },
         {
           "id": 7,
@@ -77,7 +77,7 @@
           "price": "35000",
           "description": "달콤한 선물, 쿠키와 드립백 20개",
           "date": "",
-          "image_url": "images/new/new4.jpg"
+          "image_url": "images/best/best1.jpg"
         }
       ]
     }
