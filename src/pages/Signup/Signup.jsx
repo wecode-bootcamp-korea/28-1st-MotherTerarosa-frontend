@@ -35,7 +35,7 @@ const Signup = () => {
       firstpassword: password,
     } = formInput;
 
-    fetch(api.signup, {
+    fetch('http://10.58.7.78:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({ name, username, email, password }),
     })
