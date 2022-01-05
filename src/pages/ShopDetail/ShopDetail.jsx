@@ -12,8 +12,7 @@ function ShopDetail() {
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
   const { data: productDetail, loading: isProductLoading } = useFetch({
-    url: api.detail,
-    // url: `${api.detail}/${id}`,
+    url: `${api.detail}/${id}`,
   });
 
   const { data: categories, loading: isCategoryLoading } = useFetch({
