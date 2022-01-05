@@ -1,16 +1,16 @@
 @import 'styles';
 
-.loginMianContiainer {
+.loginMainContiainer {
   @include flexbox(center, center);
   width: 100vw;
   height: 100vh;
 
-  .loginWrapper {
+  .wrapper {
     width: 100%;
     height: 100%;
     padding-top: 100px;
 
-    .loginLogo {
+    .logo {
       text-align: center;
       width: 100%;
       height: 50px;

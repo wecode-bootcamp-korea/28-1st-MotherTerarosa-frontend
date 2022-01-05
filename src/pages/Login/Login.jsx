@@ -3,21 +3,20 @@ import { useNavigate, Link } from 'react-router-dom';
 import './Login.scss';
 
 const Login = () => {
-  const [formInput, setFormInput] = useState({
+  const [userInfo, setUserInfo] = useState({
     id: '',
     pw: '',
   });
-
   const navigate = useNavigate();
 
   const handleInput = event => {
     const { name, value } = event.target;
-    setFormInput({ ...formInput, [name]: value });
+    setUserInfo({ ...userInfo, [name]: value });
   };
 
   const handleLogin = () => {
-    const { id: username, pw: password } = formInput;
-    fetch('', {
+    const { id: username, pw: password } = userInfo;
+    fetch('http://10.58.7.78:8000/users/login', {
       method: 'POST',
       body: JSON.stringify({
         username,
@@ -37,9 +36,9 @@ const Login = () => {
   };
 
   return (
-    <section className="loginMianContiainer">
-      <div className="loginWrapper">
-        <div className="loginLogo">
+    <section className="loginMainContiainer">
+      <div className="wrapper">
+        <div className="logo">
           <h1>Login</h1>
           <h2>로그인</h2>
           <div className="loginBox">
@@ -53,14 +52,14 @@ const Login = () => {
                       name="id"
                       placeholder="아이디"
                       onChange={handleInput}
-                      value={formInput.id}
+                      value={userInfo.id}
                     />
                     <input
                       type="password"
                       name="pw"
                       placeholder="비밀번호"
                       onChange={handleInput}
-                      value={formInput.pw}
+                      value={userInfo.pw}
                     />
                   </label>
                 </form>
