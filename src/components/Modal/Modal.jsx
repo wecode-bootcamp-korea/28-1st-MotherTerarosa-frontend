@@ -1,23 +1,26 @@
 import React from 'react';
+import { printNumberWithComma } from 'utils/printNumberWithComma';
 import './Modal.scss';
 
-function Modal() {
+function Modal(props) {
+  const { closeModal, quantity, name, image_url: image, price } = props;
   return (
     <div className="Modal">
       <div className="modalContent">
-        <strong className="modalTitle">$주문상세</strong>
+        <strong className="modalTitle">결제완료</strong>
         <div className="modalInfo">
           <div className="imageWrapper">
-            <img src="https://item.kakaocdn.net/do/493188dee481260d5c89790036be0e669cbcbe2de7f4969efc79ab353e0c19e8" />
+            <img src={image[0]} alt={`${name} 상품이미지`} />
           </div>
           <div className="description">
-            <strong className="descriptionTitle">$상품명이이</strong>
-            <p className="quantity">$3개</p>
-            <p className="price">$65,000원</p>
+            <strong className="descriptionTitle">{name}</strong>
+            <p className="quantity">{quantity}개</p>
+            <p className="price">{printNumberWithComma(price * quantity)}원</p>
           </div>
         </div>
+        <p className="userInfo">$userName 님 $point원 남았습니다.</p>
         <div className="confirm">
-          <button className="confirmButton" type="button">
+          <button className="confirmButton" type="button" onClick={closeModal}>
             확인
           </button>
         </div>

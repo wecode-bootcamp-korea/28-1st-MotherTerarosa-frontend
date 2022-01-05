@@ -45,6 +45,15 @@ function ShopDetail() {
     console.log({ method: 'POST', ...productOrderForm });
   };
 
+  const handleOrderButton = e => {
+    submitOrderForm();
+    setFloatModal(true);
+  };
+
+  const closeModal = () => {
+    setFloatModal(false);
+  };
+
   if (isCategoryLoading || isProductLoading) return <SkeletonShopDetail />;
 
   return (
@@ -59,10 +68,12 @@ function ShopDetail() {
           {...productDetail}
           quantity={quantity}
           handleQuantity={handleQuantity}
-          submitOrder={submitOrderForm}
+          submitOrder={handleOrderButton}
         />
       </main>
-      {floatModal && <Modal />}
+      {floatModal && (
+        <Modal closeModal={closeModal} quantity={quantity} {...productDetail} />
+      )}
     </div>
   );
 }
