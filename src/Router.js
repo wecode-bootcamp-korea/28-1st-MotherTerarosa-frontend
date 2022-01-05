@@ -8,6 +8,7 @@ import Main from 'pages/Main/Main';
 import ShopList from 'pages/ShopList/ShopList';
 import ShopDetail from 'pages/ShopDetail/ShopDetail';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
+import Modal from './components/Modal/modal';
 
 function Router() {
   return (
@@ -20,6 +21,7 @@ function Router() {
         <Route path="/productlist" element={<ShopList />} />
         <Route path="/productdetail/:id" element={<ShopDetail />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="/modal" element={<Modal />} />
       </Routes>
       <Footer />
     </BrowserRouter>

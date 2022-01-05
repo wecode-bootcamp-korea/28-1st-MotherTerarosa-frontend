@@ -1,27 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from 'react-modal';
+import './Modal.scss';
 
-const Modal = props => {
-  const { open, close, header } = props;
+const App = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   return (
-    <div className={open ? 'openModal modal' : 'modal'}>
-      {open ? (
-        <section>
-          <header>
-            {header}
-            <button className="close" onClick={close}>
-              &times;
-            </button>
-          </header>
-          <main>{props.children}</main>
-          <footer>
-            <button className="close" onClick={close}>
-              close
-            </button>
-          </footer>
-        </section>
-      ) : null}
-    </div>
+    <>
+      <button onClick={() => setModalIsOpen(true)}>Modal Open</button>
+      <Modal isOpen={true}>
+        this is Modal content
+        <button onClick={() => setModalIsOpen(false)}>Modal Open</button>
+      </Modal>
+    </>
   );
 };
-
-export default Modal;

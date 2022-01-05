@@ -29,7 +29,7 @@ function GlobalNav() {
         <div className="infoWrapper">
           <ul className="personalInfoWrapper">
             <Link to="/login">로그인</Link>
-            <Link to="#">주문/배송</Link>
+            <Link to="/modal">주문/배송</Link>
             <Link to="#">장바구니</Link>
             <Link to="#">문의</Link>
           </ul>
