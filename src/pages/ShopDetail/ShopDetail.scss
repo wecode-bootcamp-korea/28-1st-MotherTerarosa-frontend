@@ -64,10 +64,10 @@
     }
 
     .productDescription {
-      @include flexbox(start, start);
+      @include flexbox(start, center);
 
       dt {
-        margin-right: 5px;
+        margin-right: 20px;
         font-weight: 700;
       }
     }
@@ -88,17 +88,15 @@
         width: 25%;
 
         .quantity {
-          width: 40px;
-          margin-right: 10px;
+          margin-right: 20px;
           padding: 0 2px 0 3px;
-          border: 1px solid #d4d8d9;
-          border-radius: 3px;
-          line-height: 23px;
+          font-size: 23px;
+          line-height: 1.6;
         }
 
         .quantityController {
           i {
-            margin-right: 5px;
+            margin-right: 10px;
             cursor: pointer;
           }
         }

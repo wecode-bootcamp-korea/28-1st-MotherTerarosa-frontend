@@ -11,10 +11,10 @@ import './ShopDetail.scss';
 function ShopDetail() {
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
+
   const { data: productDetail, loading: isProductLoading } = useFetch({
     url: `${api.detail}/${id}`,
   });
-
   const { data: categories, loading: isCategoryLoading } = useFetch({
     url: api.categories,
   });
@@ -26,6 +26,20 @@ function ShopDetail() {
       if (quantity === 1) return;
       setQuantity(quantity => quantity - 1);
     }
+  };
+
+  const productOrderForm = {
+    headers: {
+      Authorization: 'alskdfjalsijlaskdtf1203924011029ㅋㅋㅋㅋ',
+    },
+    body: JSON.stringify({
+      product_id: id,
+      quantity: quantity.toString(),
+    }),
+  };
+
+  const submitOrderForm = () => {
+    console.log({ method: 'POST', ...productOrderForm });
   };
 
   if (isCategoryLoading || isProductLoading) return <SkeletonShopDetail />;
@@ -42,6 +56,7 @@ function ShopDetail() {
           {...productDetail}
           quantity={quantity}
           handleQuantity={handleQuantity}
+          submitOrder={submitOrderForm}
         />
       </main>
     </div>
