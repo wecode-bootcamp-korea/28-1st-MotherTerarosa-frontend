@@ -9,7 +9,6 @@ function Main() {
   const [currentImg, setCurrentImg] = useState(0);
   const [productsList, setProductsList] = useState([]);
   const imgRef = useRef(null);
-  // const timer = 1;
 
   // 데이터 와라
   // useEffect(() => {
@@ -27,8 +26,11 @@ function Main() {
 
   useEffect(() => {
     const getNextImgByTimer = () => getNextImg();
-    setTimeout(getNextImgByTimer, 1000);
+    const timer = setTimeout(getNextImgByTimer, 1000);
     console.log(currentImg);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [currentImg]);
 
   const getPreImg = () => {
@@ -37,7 +39,7 @@ function Main() {
   };
 
   const getNextImg = () => {
-    if (currentImg >= 3) return;
+    if (currentImg === 3) return;
     setCurrentImg(currentImg => currentImg + 1);
   };
 
