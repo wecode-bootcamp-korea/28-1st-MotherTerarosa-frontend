@@ -7,13 +7,16 @@ import SkeletonShopDetail from './SkeletonShopDetail';
 import { api } from 'config';
 import useFetch from 'hooks/useFetch';
 import './ShopDetail.scss';
+import Modal from 'components/Modal/Modal';
 
 function ShopDetail() {
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
+  const [floatModal, setFloatModal] = useState(false);
 
   const { data: productDetail, loading: isProductLoading } = useFetch({
-    url: `${api.detail}/${id}`,
+    // url: `${api.detail}/${id}`,
+    url: 'http://localhost:3000/data/productDetail.json',
   });
   const { data: categories, loading: isCategoryLoading } = useFetch({
     url: api.categories,
@@ -59,6 +62,7 @@ function ShopDetail() {
           submitOrder={submitOrderForm}
         />
       </main>
+      {floatModal && <Modal />}
     </div>
   );
 }
