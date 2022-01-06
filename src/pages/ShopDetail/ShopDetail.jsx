@@ -41,6 +41,7 @@ function ShopDetail() {
   };
 
   const submitOrderForm = () => {
+    console.log(productOrderForm);
     fetch(api.order, { method: 'POST', ...productOrderForm })
       .then(res => res.json())
       .then(data => console.log(data));
