@@ -10,10 +10,9 @@ const {
   loading: isProductLoading,
   data: productsData,
   error: productsError,
-  refetch,
 } = useFetch({ url: api.products });
 ```
 
 **return**
 
-> return { ...state, refetch };
+> return { ...state };

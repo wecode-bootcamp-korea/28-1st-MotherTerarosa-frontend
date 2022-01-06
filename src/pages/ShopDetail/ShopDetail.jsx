@@ -13,6 +13,7 @@ function ShopDetail() {
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
   const [floatModal, setFloatModal] = useState(false);
+  const [orderedUserInfo, setOrderedUserInfo] = useState({});
 
   const { data: productDetail, loading: isProductLoading } = useFetch({
     url: `${api.detail}/${id}`,
@@ -41,10 +42,15 @@ function ShopDetail() {
   };
 
   const submitOrderForm = () => {
-    console.log(productOrderForm);
     fetch(api.order, { method: 'POST', ...productOrderForm })
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => {
+        const { user_name: userName, user_point: point } = data.result;
+        setOrderedUserInfo({
+          userName: userName,
+          point: point,
+        });
+      });
   };
 
   const handleOrderButton = e => {
@@ -78,6 +84,7 @@ function ShopDetail() {
           closeModal={closeModal}
           quantity={quantity}
           {...productDetail}
+          {...orderedUserInfo}
         />
       )}
     </div>
