@@ -1,0 +1,77 @@
+@import 'styles';
+
+.modalContent {
+  .modalTitle {
+    display: block;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $white-gray;
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .modalInfo {
+    @include flexbox(between, start);
+    margin-bottom: 50px;
+
+    .imageWrapper {
+      // TODO: 밀어낼 양 calc 로 나중에 재계산
+      width: 45%;
+      max-height: 180px;
+
+      overflow: hidden;
+
+      img {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .description {
+      @include column-flexbox(start, end);
+      width: 45%;
+
+      &Title {
+        display: block;
+        width: 200px;
+        margin-bottom: 30px;
+        overflow: hidden;
+        font-size: 25px;
+        line-height: 1.4;
+        text-align: right;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .quantity {
+        margin-bottom: 35px;
+        font-size: 25px;
+      }
+
+      .price {
+        font-size: 30px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .userInfo {
+    margin-bottom: 30px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .confirm {
+    @include flexbox(center, center);
+
+    &Button {
+      padding: 15px 40px;
+      border-radius: 10px;
+      background-color: $black;
+      color: $white;
+      font-size: 30px;
+      font-weight: 700;
+    }
+  }
+}
