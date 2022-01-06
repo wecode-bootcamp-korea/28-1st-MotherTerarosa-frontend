@@ -6,7 +6,7 @@ function ProductList({ products, getCurrentProducts }) {
     <section className="productList">
       {getCurrentProducts(products).map(product => {
         const { id, ...productInfo } = product;
-        return <ProductCard key={id} {...productInfo} />;
+        return <ProductCard key={id} id={id} {...productInfo} />;
       })}
     </section>
   );
