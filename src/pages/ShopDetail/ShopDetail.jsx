@@ -13,10 +13,10 @@ function ShopDetail() {
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
   const [floatModal, setFloatModal] = useState(false);
+  const [orderedUserInfo, setOrderedUserInfo] = useState({});
 
   const { data: productDetail, loading: isProductLoading } = useFetch({
-    // url: `${api.detail}/${id}`,
-    url: 'http://localhost:3000/data/productDetail.json',
+    url: `${api.detail}/${id}`,
   });
   const { data: categories, loading: isCategoryLoading } = useFetch({
     url: api.categories,
@@ -33,16 +33,24 @@ function ShopDetail() {
 
   const productOrderForm = {
     headers: {
-      Authorization: 'alskdfjalsijlaskdtf1203924011029ㅋㅋㅋㅋ',
+      Authorization: localStorage.getItem('token'),
     },
     body: JSON.stringify({
       product_id: id,
-      quantity: quantity.toString(),
+      quantity,
     }),
   };
 
   const submitOrderForm = () => {
-    console.log({ method: 'POST', ...productOrderForm });
+    fetch(api.order, { method: 'POST', ...productOrderForm })
+      .then(res => res.json())
+      .then(data => {
+        const { user_name: userName, user_point: point } = data.result;
+        setOrderedUserInfo({
+          userName: userName,
+          point: point,
+        });
+      });
   };
 
   const handleOrderButton = e => {
@@ -58,7 +66,7 @@ function ShopDetail() {
 
   return (
     <div className="ShopDetail">
-      <ShopAsideWrapper categories={categories.categories} cateNum="0" />
+      <ShopAsideWrapper categories={categories} cateNum="0" />
       <main className="shopDetailMain">
         <ProductImageArea
           images={productDetail.image_url}
@@ -76,6 +84,7 @@ function ShopDetail() {
           closeModal={closeModal}
           quantity={quantity}
           {...productDetail}
+          {...orderedUserInfo}
         />
       )}
     </div>

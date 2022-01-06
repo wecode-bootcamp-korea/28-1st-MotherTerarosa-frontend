@@ -35,19 +35,24 @@ const Signup = () => {
       firstpassword: password,
     } = formInput;
 
-    fetch('http://10.58.7.78:8000/users/signup', {
+    fetch(api.signup, {
       method: 'POST',
       body: JSON.stringify({ name, username, email, password }),
     })
       .then(response => response.json())
       .then(result => {
+        if (result.message === 'CREATE ACCOUNT SUCCESS') {
+          alert('회원가입을 축하합니다');
+          navigate('/login');
+          return;
+        }
+
         if (result.message === 'ALREADY_EXIST_USERNAME') {
           alert('아이디를 확인해 주세요');
+          return;
         } else if (result.message === 'ALREADY_EXIST_EMAIL') {
           alert('이메일을 확인해 주세요');
-        } else if (result.message === 'CREATE ACCOUNT SUCCESS') {
-          alert('회원가입을 축하합니다');
-          navigate('/');
+          return;
         }
       });
   };
@@ -91,7 +96,7 @@ const Signup = () => {
                 onChange={handleInput}
                 value={formInput.firstpassword}
               />
-              <span>(8자 이상)</span>
+              <span>(8자 이상, 특수문자 포함)</span>
             </div>
           </div>
           <div className="user">

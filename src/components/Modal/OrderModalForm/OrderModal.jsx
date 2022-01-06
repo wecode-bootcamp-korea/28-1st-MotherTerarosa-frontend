@@ -4,7 +4,15 @@ import { printNumberWithComma } from 'utils/printNumberWithComma';
 import './OrderModal.scss';
 
 function OrderModal(props) {
-  const { closeModal, quantity, name, image_url: image, price } = props;
+  const {
+    closeModal,
+    quantity,
+    name,
+    image_url: image,
+    price,
+    userName,
+    point,
+  } = props;
 
   return (
     <Modal>
@@ -19,7 +27,9 @@ function OrderModal(props) {
           <p className="price">{printNumberWithComma(price * quantity)}원</p>
         </div>
       </div>
-      <p className="userInfo">$userName 님 $point원 남았습니다.</p>
+      <p className="userInfo">
+        {userName} 님 {printNumberWithComma(point + 0)}원 남았습니다.
+      </p>
       <div className="confirm">
         <button className="confirmButton" type="button" onClick={closeModal}>
           확인

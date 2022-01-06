@@ -1,11 +1,13 @@
 // const BASE_URL = 'http://10.58.6.238:8000';
 const BASE_URL = 'http://10.58.3.33:8000';
-
-const MOCK_URL = 'http://localhost:3000/data';
+const tmpURL = 'http://10.58.2.164:8000';
 
 export const api = {
-  categories: MOCK_URL + '/categories.json',
-  products: BASE_URL + '/products.json',
+  signup: BASE_URL + '/users/signup',
+  login: BASE_URL + '/users/login',
+  main: BASE_URL + '/products/main',
+  products: tmpURL + '/products',
+  categories: BASE_URL + '/products/categories',
   detail: BASE_URL + '/products/productdetail',
-  main: BASE_URL + '/',
+  order: BASE_URL + '/orders/orderitem',
 };
