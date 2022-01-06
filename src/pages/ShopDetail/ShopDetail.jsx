@@ -36,7 +36,7 @@ function ShopDetail() {
     },
     body: JSON.stringify({
       product_id: id,
-      quantity: quantity.toString(),
+      quantity,
     }),
   };
 
