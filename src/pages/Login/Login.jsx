@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { api } from 'config';
 import './Login.scss';
 
 const Login = () => {
@@ -16,7 +17,8 @@ const Login = () => {
 
   const handleLogin = () => {
     const { id: username, pw: password } = userInfo;
-    fetch('http://10.58.7.78:8000/users/login', {
+
+    fetch(api.login, {
       method: 'POST',
       body: JSON.stringify({
         username,
@@ -36,7 +38,7 @@ const Login = () => {
   };
 
   return (
-    <section className="loginMainContiainer">
+    <section className="loginMainContainer">
       <div className="wrapper">
         <div className="logo">
           <h1>Login</h1>
