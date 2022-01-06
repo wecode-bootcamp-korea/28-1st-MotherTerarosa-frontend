@@ -1,0 +1,50 @@
+@import 'styles';
+
+body {
+  margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.main {
+  @include column-flexbox(center, center);
+
+  .carouselWrapper {
+    position: relative;
+    overflow: hidden;
+
+    .carousel {
+      display: flex;
+      transition: all 0.5s linear;
+      max-width: 100vw;
+
+      img {
+        display: block;
+        min-width: 100vw;
+        object-fit: cover;
+      }
+    }
+
+    .arrowWrapper {
+      @include flexbox(between, center);
+      @include pos-center;
+      top: 50%;
+      width: 96%;
+      z-index: $gnb-level;
+      color: $white;
+
+      .arrow {
+        color: gray;
+        opacity: 0.8;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .productsListWrapper {
+    @include column-flexbox;
+    width: 1240px;
+    margin: 0 auto;
+    object-fit: fill;
+  }
+}
