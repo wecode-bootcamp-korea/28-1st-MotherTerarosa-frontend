@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ShopAsideWrapper from 'components/ShopAside/ShopAsideWrapper';
+import OrderModal from 'components/Modal/OrderModalForm/OrderModal';
 import ProductImageArea from './ProductImageList/ProductImageArea';
 import ProductInfo from './ProductInfo/ProductInfo';
 import SkeletonShopDetail from './SkeletonShopDetail';
 import { api } from 'config';
 import useFetch from 'hooks/useFetch';
 import './ShopDetail.scss';
-import Modal from 'components/Modal/Modal';
 
 function ShopDetail() {
   const { id } = useParams();
@@ -74,7 +74,11 @@ function ShopDetail() {
         />
       </main>
       {floatModal && (
-        <Modal closeModal={closeModal} quantity={quantity} {...productDetail} />
+        <OrderModal
+          closeModal={closeModal}
+          quantity={quantity}
+          {...productDetail}
+        />
       )}
     </div>
   );
