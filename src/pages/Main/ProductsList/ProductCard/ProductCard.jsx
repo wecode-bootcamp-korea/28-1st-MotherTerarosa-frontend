@@ -7,12 +7,11 @@ export default function ProductCard({ products }) {
     products;
 
   const editTastingNote = () => {
-    // console.log(tasting_note);
     const stringNote = tasting_note.join(', ');
-    // console.log(stringNote);
     if (tasting_note.length === 0) return `ㅤ`;
     else return stringNote;
   };
+
   return (
     <div className="productCard">
       <Link to={`/productdetail/${id}`}>

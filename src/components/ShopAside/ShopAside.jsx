@@ -6,7 +6,6 @@ function ShopAside(props) {
   const { no, name, sub_categories: subCategories, cateNum } = props;
   const [isClickedMore, setIsClickedMore] = useState(false);
   const hasSubCategory = subCategories[0];
-
   useEffect(() => {
     setIsClickedMore(false);
     if (cateNum.includes('200')) setIsClickedMore(true);
@@ -15,7 +14,7 @@ function ShopAside(props) {
   return (
     <li className="categoryItem">
       <div className="categoryContent">
-        <Link to={`/shoplist?category=${no}`}>{name}</Link>
+        <Link to={`/productlist?category=${no}`}>{name}</Link>
         {hasSubCategory && (
           <i
             className={`fas ${isClickedMore ? 'fa-minus' : 'fa-plus'} `}
@@ -28,7 +27,7 @@ function ShopAside(props) {
       <ul className={`categoryList2Dep ${isClickedMore ? 'isActive' : ''} `}>
         {subCategories.map(category => (
           <li key={category.no}>
-            <Link to={`/shoplist?category=${category.no}`}>
+            <Link to={`/productlist?category=${category.no}`}>
               {category.name}
             </Link>
           </li>

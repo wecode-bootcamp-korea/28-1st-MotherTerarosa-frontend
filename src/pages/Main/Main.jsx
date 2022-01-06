@@ -9,6 +9,8 @@ import {
 } from 'react-icons/md';
 import './Main.scss';
 
+const SLIDE_BASE_WIDTH_PERCENT = 100;
+
 function Main() {
   const [carousel, setCarousel] = useState([]);
   const [currentImg, setCurrentImg] = useState(0);
@@ -21,7 +23,6 @@ function Main() {
       .then(data => setCarousel(data.carouselImages));
   }, []);
 
-  // 데이터 받는용
   useEffect(() => {
     fetch(api.main)
       .then(res => res.json())
@@ -31,7 +32,9 @@ function Main() {
   }, []);
 
   useEffect(() => {
-    imgRef.current.style.transform = `translateX(-${currentImg * 100}%)`;
+    imgRef.current.style.transform = `translateX(-${
+      currentImg * SLIDE_BASE_WIDTH_PERCENT
+    }%)`;
   }, [currentImg]);
 
   useEffect(() => {
