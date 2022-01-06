@@ -4,7 +4,7 @@
   margin: 50px;
   width: 1240px;
 
-  h1 {
+  .categoryName {
     @include flexbox(center, center);
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 40px;

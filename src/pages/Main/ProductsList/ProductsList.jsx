@@ -6,7 +6,7 @@ import './ProductsList.scss';
 export default function ProductsList({ productsLists }) {
   return (
     <section className="productsList">
-      <h1>{productsLists.categoryName}</h1>
+      <p className="categoryName">{productsLists.categoryName}</p>
       <Link to="/productlist">
         <div className="moreShopping">+SHOP</div>
       </Link>
