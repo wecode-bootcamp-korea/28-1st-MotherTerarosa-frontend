@@ -1,7 +1,8 @@
-const BASE_URL = 'http://10.58.7.78:8000';
+const BASE_URL = 'http://10.58.6.238:8000';
+const MOCK_URL = 'http://localhost:3000/data';
 
 export const api = {
-  signup: BASE_URL + '/users/signup',
-  categories: BASE_URL + '/products/categories',
-  products: BASE_URL + '/products',
+  categories: MOCK_URL + '/categories.json',
+  products: BASE_URL + '/products.json',
+  detail: BASE_URL + '/products/productdetail',
 };
