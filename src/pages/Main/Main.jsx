@@ -2,7 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from 'config.js';
 import ProductsList from './ProductsList/ProductsList';
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
+import {
+  MdFormatColorReset,
+  MdKeyboardArrowLeft,
+  MdKeyboardArrowRight,
+} from 'react-icons/md';
 import './Main.scss';
 
 function Main() {
@@ -23,12 +27,11 @@ function Main() {
       .then(res => res.json())
       .then(result => {
         setProductsList(result.result);
-        // console.log(result.result);
       });
   }, []);
 
   useEffect(() => {
-    imgRef.current.style.transform = `translateX(-${currentImg}00%)`;
+    imgRef.current.style.transform = `translateX(-${currentImg * 100}%)`;
   }, [currentImg]);
 
   useEffect(() => {
@@ -42,8 +45,6 @@ function Main() {
   const navigate = useNavigate();
 
   const goToDetailPage = link => {
-    console.log(link);
-    //needConfirm
     navigate(`${link}`);
   };
 
@@ -69,7 +70,6 @@ function Main() {
               onClick={() => goToDetailPage(carousel.link_to)}
             />
           ))}
-          ;
         </div>
         <div className="arrowWrapper">
           <MdKeyboardArrowLeft

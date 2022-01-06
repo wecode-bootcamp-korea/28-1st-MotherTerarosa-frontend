@@ -1,5 +1,11 @@
 @import 'styles';
 
+body {
+  margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .main {
   @include column-flexbox(center, center);
 
@@ -8,15 +14,14 @@
     overflow: hidden;
 
     .carousel {
-      @include inline-flexbox(start, center);
+      display: flex;
       transition: all 0.5s linear;
-
-      a {
-        display: block;
-      }
+      max-width: 100vw;
 
       img {
-        width: 100%;
+        display: block;
+        min-width: 100vw;
+        object-fit: cover;
       }
     }
 
@@ -24,7 +29,7 @@
       @include flexbox(between, center);
       @include pos-center;
       top: 50%;
-      width: 100%;
+      width: 96%;
       z-index: $gnb-level;
       color: $white;
 
