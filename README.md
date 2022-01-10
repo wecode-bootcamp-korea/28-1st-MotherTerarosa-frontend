@@ -9,7 +9,7 @@
 ## :: 팀원
 
 - Frontend - 박윤국, 성윤경, 엄성용
-- Backend - 강현구, 노세인, 이민석
+- Backend - 강현구, 노세인, 이민석 (https://github.com/wecode-bootcamp-korea/28-1st-MotherTerarosa-backend)
 
 ## :: Project 소개
 
