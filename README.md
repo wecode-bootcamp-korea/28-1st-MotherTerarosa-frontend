@@ -41,3 +41,8 @@
 |   Main   | <ul><li>공통 컴포넌트(GlobalNav, Footer) <li>점보트론 <li>Best 상품 노출 row </ul>                                                          |       ![](https://images.velog.io/images/lov012726/post/dda9d744-b530-40aa-8f13-b3ab0f66cc43/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-27%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205.43.52.png)        |
 | ShopList | <ul><li>Aside(2차 카테고리까지) <li>상품 카드 fetching<li>Pagination<li>Skeleton UI</ul>                                                    |       ![](https://images.velog.io/images/lov012726/post/3ac2c3cb-d521-46c5-9f22-ee790740b0ab/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-27%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205.44.06.png)        |
 |  Detail  | <ul><li>구메 구현</ul>                                                                                                                      |       ![](https://images.velog.io/images/lov012726/post/0a01f9d2-cac9-43e2-8dfb-92eb2ddae42b/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202021-12-27%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205.44.23.png)        |
+
+
+이 프로젝트는 네이버 사이트를 참조하여 학습목적으로 만들었습니다.
+실무수준의 프로젝트이지만 학습용으로 만들었기 때문에 이 코드를 활용하여 이득을 취하거나 무단 배포할 경우 법적으로 문제될 수 있습니다.
+이 프로젝트에서 사용하고 있는 사진 대부분은 위코드에서 구매한 것이므로 해당 프로젝트 외부인이 사용할 수 없습니다.
